@@ -1,0 +1,108 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar> 
+    <ion-title color="dark" size="large" class="drop">
+      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
+    </ion-title>
+
+      <ion-button [routerLink]="['/home']" class="drop" fill="outline" slot="end" size="small" color="warning"><ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver</ion-button>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="fullheight xc">
+
+    <ion-item-group>
+
+      <div class="fullheight xc"> 
+      <ion-item>
+        <ion-avatar>
+          <img src="/assets/media/fruit5.png">
+        </ion-avatar>
+        <ion-avatar>
+          <img src="/assets/media/fruit6.png">
+        </ion-avatar>
+         <ion-avatar>
+          <img src="/assets/media/fruit7.png">
+        </ion-avatar>
+          <ion-avatar>
+          <img src="/assets/media/fruit8.png">
+        </ion-avatar>
+      </ion-item>
+      </div>
+
+      <div class="fullheight xc" id="titulo-app">    
+        <ion-label color="dark">registro</ion-label>     
+      </div>
+
+    <form [formGroup]="ionicForm" (ngSubmit)="iniciar()">
+
+      <ion-grid><ion-row>
+
+      <ion-col size="5">
+      <ion-item>
+        <ion-label color="dark" position="stacked">nombre:</ion-label>
+        <ion-input formControlName="nombre" type="email" color="warning" placeholder="ej: vilma"></ion-input>
+      </ion-item>  
+      </ion-col>
+
+      <ion-col size="6">
+      <ion-item>
+        <ion-label color="dark" position="stacked">usuario:</ion-label>
+        <ion-input formControlName="username" type="text" color="warning" placeholder="ej: vilmacho"></ion-input>
+      </ion-item>
+      </ion-col>
+
+      </ion-row></ion-grid>
+
+
+      <ion-grid><ion-row>
+      <ion-col size="11">
+
+      <ion-item>
+        <ion-label color="dark" position="stacked">correo:</ion-label>
+        <ion-input formControlName="email" type="email" color="primary" placeholder="ej: vilma@vilma.com"></ion-input>
+      </ion-item>   
+
+      </ion-col>   
+      </ion-row></ion-grid>
+
+
+      <div formGroupName="passwords">
+
+      <ion-grid><ion-row>
+
+
+      <ion-col size="6">
+        <ion-item>
+        <ion-label color="dark" position="stacked">contraseña:</ion-label>
+        <ion-input formControlName="password" color="danger" type="password" placeholder="******"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="5">
+        <ion-item>
+        <ion-label color="dark" position="stacked">confirmar:</ion-label>
+        <ion-input formControlName="passwordconfirmation" color="danger" type="password" placeholder="******"></ion-input>
+        </ion-item>
+      </ion-col>
+      </ion-row></ion-grid>
+
+      </div>
+
+
+       <div class="fullheight xc">  
+        <ion-button type="submit" [disabled]="ionicForm.invalid" color="primary" fill="outline" size="small">confirmar</ion-button>
+       </div>
+    </form>
+
+   </ion-item-group>
+
+
+  </div>
+
+</ion-content>
+
