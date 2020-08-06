@@ -28,11 +28,11 @@ const routes: Routes = [
     loadChildren: () => import('./crear-establecimiento/crear-establecimiento.module').then( m => m.CrearEstablecimientoPageModule)
   },
   {
-    path: 'editar-establecimiento',
+    path: 'editar-establecimiento/:id',
     loadChildren: () => import('./editar-establecimiento/editar-establecimiento.module').then( m => m.EditarEstablecimientoPageModule)
   },
   {
-    path: 'borrar-establecimiento',
+    path: 'borrar-establecimiento/:id',
     loadChildren: () => import('./borrar-establecimiento/borrar-establecimiento.module').then( m => m.BorrarEstablecimientoPageModule)
   },
   // {
