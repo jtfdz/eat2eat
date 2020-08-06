@@ -38,7 +38,7 @@ export class DashboardIndividualPage{
                        break; 
                      } 
                      default: { 
-                       console.log('pelaste man');
+                       console.log('ERROR: d-i: get');
                        break; 
                     } 
                   }

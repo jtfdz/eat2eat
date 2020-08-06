@@ -56,7 +56,7 @@ export class CrearEstablecimientoPage{
                    break; 
                  } 
                  default: { 
-                   console.log('ERROR');
+                   console.log('ERROR: c-e: post');
                    break; 
                 } 
               }

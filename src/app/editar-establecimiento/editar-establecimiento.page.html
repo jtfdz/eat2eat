@@ -1,9 +1,67 @@
-<ion-header>
+<ion-header  class="ion-no-border">
   <ion-toolbar>
-    <ion-title>editar-establecimiento</ion-title>
+	    <ion-title color="dark" size="large" slot="start" class="drop">
+	      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
+	    </ion-title>
+	   <ion-button slot="end" (click)="logout()" fill="outline" size="small" class="drop" color="danger">  <ion-icon slot="start" name="log-out-outline"></ion-icon>desconectar
+    </ion-button>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="fullheight xc">
+    <ion-item-group>
+
+    <div class="fullheight xc" id="titulo-app">    
+        <ion-label color="dark">editar nota</ion-label>     
+      </div>
+
+    <form [formGroup]="ionicForm" (ngSubmit)="editar()">
+      
+      <ion-item>
+        <ion-label color="{{coloreo}}" position="floating">nombre</ion-label>
+        <ion-input formControlName="nombre" value="{{nombre}}" type="text" ></ion-input>        
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="{{coloreo}}" position="floating">descripción</ion-label>
+        <ion-input formControlName="descripcion"  value="{{descripcion}}" type="text" ></ion-input>        
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="{{coloreo}}" position="floating">dirección</ion-label>
+        <ion-input formControlName="direccion" value="{{direccion}}" type="text" ></ion-input>        
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="{{coloreo}}" position="floating">contacto</ion-label>
+        <ion-input formControlName="contacto" value="{{contacto}}" type="text"></ion-input>        
+      </ion-item>
+
+
+       <div class="fullheight xc">  
+        <ion-button (click)="volver()" fill="outline" class="drop" size="small" color="warning" slot="start">  
+          <ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver
+      </ion-button>
+         <ion-button type="submit" [disabled]="ionicForm.invalid" fill="outline" class="drop" size="small" color="{{coloreo}}" slot="start">  
+          <ion-icon slot="start" name="checkmark-done-circle-outline"></ion-icon>editar
+      </ion-button>
+       </div>
+    </form>
+
+
+
+
+
+
+
+
+   </ion-item-group>
+  </div>
+
+
+
+
 
 </ion-content>

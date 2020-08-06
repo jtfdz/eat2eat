@@ -33,11 +33,10 @@ export class DashboardPage {
                     	for (let entry of response['data']){
                     		this.arr.push(entry);
                     	}
-
                        break; 
                      } 
                      default: { 
-                       console.log('pelaste man');
+                       console.log('ERROR: d: get');
                        break; 
                     } 
                   }

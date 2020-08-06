@@ -11,14 +11,9 @@ export class AuthService {
   baseUrl: string = 'http://localhost:3000';
 
   httpOptions = {
-      // headers: new HttpHeaders({
-      //   'Content-Type': 'application/json',
-      //   'Access-Control-Allow-Origin':'*'
-      // }),
       withCredentials: true
-     };
+  };
 
-  
   
   constructor(
   	private http : HttpClient,
