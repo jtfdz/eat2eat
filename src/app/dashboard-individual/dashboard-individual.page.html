@@ -15,25 +15,29 @@
     <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
       <ion-card *ngFor="let est of arr">
         <ion-item>
-            <ion-text>{{est.nombre_establecimiento}}</ion-text> 
-            <ion-button routerLink="/borrar-nota/{{est.id_establecimiento}}" *ngIf="borrado" icon-only  slot="end" color="danger"><ion-icon name="trash"></ion-icon></ion-button>
-            <ion-button *ngIf="editado" icon-only routerLink="/editar-nota/{{est.id_establecimiento}}"  slot="end" color="secondary"><ion-icon name="brush-outline"></ion-icon></ion-button>
+            <ion-text color="{{est.color_establecimiento}}"><h4><strong>{{est.nombre_establecimiento}}</strong></h4></ion-text>  
+            <ion-button routerLink="/borrar-establecimiento/{{est.id_establecimiento}}" *ngIf="borrado" icon-only  slot="end" color="danger"><ion-icon name="trash"></ion-icon></ion-button>
+            <ion-button *ngIf="editado" icon-only routerLink="/editar-establecimiento/{{est.id_establecimiento}}"  slot="end" color="secondary"><ion-icon name="brush-outline"></ion-icon></ion-button>
         </ion-item> 
         <ion-card-content>
-          {{est.descripcion_establecimiento}}
-          {{est.direccion_establecimiento}}
-          {{est.contacto_establecimiento}}
+        <ion-text>
+          <h4><strong><u>descripción: </u></strong></h4><h4> {{est.descripcion_establecimiento}}</h4>
+        </ion-text>
+        <ion-text>
+          <h4><strong><u>dirección: </u></strong></h4><h4> {{est.direccion_establecimiento}}</h4>
+        </ion-text>
+        <ion-text color="danger" *ngIf="!est.aceptado_establecimiento">
+          <p><strong><u><small>PENDIENTE POR APROBACIÓN</small></u></strong></p>
+        </ion-text>
         </ion-card-content>
       </ion-card>
     </ion-list>
 
 
-
-
    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="dark" size="small"><ion-icon name="settings"></ion-icon></ion-fab-button>
+    <ion-fab-button color="secondary" size="small"><ion-icon name="settings"></ion-icon></ion-fab-button>
     <ion-fab-list side="top">
-      <ion-fab-button *ngIf="!borrado && !editado" color="dark" [routerLink]="['/crearnota']" size="large">
+      <ion-fab-button *ngIf="!borrado && !editado" color="dark" [routerLink]="['/crear-establecimiento']" size="large">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
       <ion-fab-button id="editadoactivo" *ngIf="!borrado" color="dark" (click)="activarEditado()">
@@ -41,10 +45,7 @@
       </ion-fab-button >
       <ion-fab-button *ngIf="!editado" id="borradoactivo" color="dark" (click)="activarBorrado()">
         <ion-icon name="trash-outline"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button *ngIf="!borrado && !editado" color="dark" [routerLink]="['/busqueda']">
-        <ion-icon name="search-outline"></ion-icon>
-      </ion-fab-button >                    
+      </ion-fab-button>                    
     </ion-fab-list>
   </ion-fab>
 

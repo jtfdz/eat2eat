@@ -23,6 +23,18 @@ const routes: Routes = [
     path: 'tabnav',
     loadChildren: () => import('./tabnav/tabnav.module').then( m => m.TabnavPageModule)
   },
+  {
+    path: 'crear-establecimiento',
+    loadChildren: () => import('./crear-establecimiento/crear-establecimiento.module').then( m => m.CrearEstablecimientoPageModule)
+  },
+  {
+    path: 'editar-establecimiento',
+    loadChildren: () => import('./editar-establecimiento/editar-establecimiento.module').then( m => m.EditarEstablecimientoPageModule)
+  },
+  {
+    path: 'borrar-establecimiento',
+    loadChildren: () => import('./borrar-establecimiento/borrar-establecimiento.module').then( m => m.BorrarEstablecimientoPageModule)
+  },
   // {
   //   path: 'dashboard-individual',
   //   loadChildren: () => import('./dashboard-individual/dashboard-individual.module').then( m => m.DashboardIndividualPageModule)

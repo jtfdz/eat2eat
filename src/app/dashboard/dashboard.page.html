@@ -15,13 +15,16 @@
     <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
       <ion-card *ngFor="let est of arr">
         <ion-item>
-            <ion-button routerLink="/ver-productos/{{est.id_establecimiento}}" icon-only slot="end" color="secondary"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>
-            <ion-text>{{est.nombre_establecimiento}}</ion-text> 
+            <ion-button routerLink="/ver-productos/{{est.id_establecimiento}}" icon-only slot="end" color="{{est.color_establecimiento}}"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>
+            <ion-text color="{{est.color_establecimiento}}"><h4><strong>{{est.nombre_establecimiento}}</strong></h4></ion-text> 
         </ion-item> 
         <ion-card-content>
-          {{est.descripcion_establecimiento}}
-          {{est.direccion_establecimiento}}
-          {{est.contacto_establecimiento}}
+        <ion-text>
+          <h4><strong><u>descripción: </u></strong></h4><h4> {{est.descripcion_establecimiento}}</h4>
+        </ion-text>
+        <ion-text>
+          <h4><strong><u>dirección: </u></strong></h4><h4> {{est.direccion_establecimiento}}</h4>
+        </ion-text>
         </ion-card-content>
       </ion-card>
     </ion-list>

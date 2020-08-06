@@ -25,6 +25,7 @@ export class DashboardPage {
   }
 
     ionViewWillEnter(){
+    this.arr = [];
   	this.authService.getRequest(this.baseUrl)
         .then((response) => {
           switch(response['status']) { 
