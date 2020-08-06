@@ -14,7 +14,19 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
-  }
+  },
+  // {
+  //   path: 'dashboard',
+  //   loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  // },
+  {
+    path: 'tabnav',
+    loadChildren: () => import('./tabnav/tabnav.module').then( m => m.TabnavPageModule)
+  },
+  // {
+  //   path: 'dashboard-individual',
+  //   loadChildren: () => import('./dashboard-individual/dashboard-individual.module').then( m => m.DashboardIndividualPageModule)
+  // },
 ];
 
 @NgModule({

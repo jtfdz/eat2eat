@@ -1,0 +1,53 @@
+<ion-header  class="ion-no-border">
+  <ion-toolbar>
+      <ion-title color="dark" size="large" class="drop">
+      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
+      </ion-title>
+
+    <ion-button (click)="logout()" class="drop" size="small" color="danger" slot="end">  
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>desconectar</ion-button>
+ 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+      <ion-card *ngFor="let est of arr">
+        <ion-item>
+            <ion-text>{{est.nombre_establecimiento}}</ion-text> 
+            <ion-button routerLink="/borrar-nota/{{est.id_establecimiento}}" *ngIf="borrado" icon-only  slot="end" color="danger"><ion-icon name="trash"></ion-icon></ion-button>
+            <ion-button *ngIf="editado" icon-only routerLink="/editar-nota/{{est.id_establecimiento}}"  slot="end" color="secondary"><ion-icon name="brush-outline"></ion-icon></ion-button>
+        </ion-item> 
+        <ion-card-content>
+          {{est.descripcion_establecimiento}}
+          {{est.direccion_establecimiento}}
+          {{est.contacto_establecimiento}}
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+
+
+
+   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="dark" size="small"><ion-icon name="settings"></ion-icon></ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button *ngIf="!borrado && !editado" color="dark" [routerLink]="['/crearnota']" size="large">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button id="editadoactivo" *ngIf="!borrado" color="dark" (click)="activarEditado()">
+        <ion-icon name="brush-outline"></ion-icon>
+      </ion-fab-button >
+      <ion-fab-button *ngIf="!editado" id="borradoactivo" color="dark" (click)="activarBorrado()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button *ngIf="!borrado && !editado" color="dark" [routerLink]="['/busqueda']">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-fab-button >                    
+    </ion-fab-list>
+  </ion-fab>
+
+
+
+</ion-content>

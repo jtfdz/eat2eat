@@ -11,12 +11,14 @@ export class AuthService {
   baseUrl: string = 'http://localhost:3000';
 
   httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin':'*'
-      }),
+      // headers: new HttpHeaders({
+      //   'Content-Type': 'application/json',
+      //   'Access-Control-Allow-Origin':'*'
+      // }),
+      withCredentials: true
      };
 
+  
   
   constructor(
   	private http : HttpClient,
@@ -29,15 +31,15 @@ export class AuthService {
   }
 
   public getRequest(url) {
-    return this.http.get(this.baseUrl + url, { withCredentials: true }).toPromise()
+    return this.http.get(this.baseUrl + url, this.httpOptions).toPromise()
   }
 
   public deleteRequest(url) {
-    return this.http.delete(this.baseUrl + url, { withCredentials: true }).toPromise()
+    return this.http.delete(this.baseUrl + url, this.httpOptions).toPromise()
   }
 
   public putRequest(url, grupoForma) {
-    return this.http.put(this.baseUrl + url, grupoForma, { withCredentials: true }).toPromise()
+    return this.http.put(this.baseUrl + url, grupoForma, this.httpOptions).toPromise()
   }
 
 
@@ -83,8 +85,7 @@ export class AuthService {
         }, {
           text: 'sí',
           handler: () => {
-            console.log('éxito')
-              //this.router.navigate(['/dashboard']); 
+            this.router.navigate(['/dashboard']); 
           }
         }
       ]

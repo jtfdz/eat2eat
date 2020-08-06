@@ -1,0 +1,35 @@
+<ion-header  class="ion-no-border">
+  <ion-toolbar>
+      <ion-title color="dark" size="large" class="drop">
+      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
+      </ion-title>
+
+    <ion-button (click)="logout()" class="drop" size="small" color="danger" slot="end">  
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>desconectar</ion-button>
+ 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+      <ion-card *ngFor="let est of arr">
+        <ion-item>
+            <ion-button routerLink="/ver-productos/{{est.id_establecimiento}}" icon-only slot="end" color="secondary"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>
+            <ion-text>{{est.nombre_establecimiento}}</ion-text> 
+        </ion-item> 
+        <ion-card-content>
+          {{est.descripcion_establecimiento}}
+          {{est.direccion_establecimiento}}
+          {{est.contacto_establecimiento}}
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+
+
+
+
+
+
+</ion-content>

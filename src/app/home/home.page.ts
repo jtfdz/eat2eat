@@ -34,6 +34,7 @@ export class HomePage implements OnInit {
 	}
 
 
+
   iniciar(){
     
     this.authService.postRequest(this.baseUrl, this.ionicForm.value)
@@ -41,7 +42,7 @@ export class HomePage implements OnInit {
           console.log(response);
           switch(response['status']) { 
                     case 200: { 
-                          console.log('éxito')
+                          this.router.navigate(['/tabnav']); 
                           this.ionicForm.reset();
                        break; 
                      } 

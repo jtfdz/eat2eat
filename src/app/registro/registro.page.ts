@@ -42,8 +42,7 @@ export class RegistroPage {
       console.log(response);
       switch(response['status']) { 
                 case 200: { 
-                     console.log('éxito')
-                      //this.router.navigate(['/dashboard']); 
+                      this.router.navigate(['/tabnav']); 
                       this.ionicForm.reset();
                    break; 
                  } 
