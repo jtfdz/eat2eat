@@ -44,8 +44,8 @@
         <ion-button (click)="volver()" fill="outline" class="drop" size="small" color="warning" slot="start">  
           <ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver
       </ion-button>
-         <ion-button type="submit" [disabled]="ionicForm.invalid" fill="outline" class="drop" size="small" color="{{coloreo}}" slot="start">  
-          <ion-icon slot="start" name="checkmark-done-circle-outline"></ion-icon>editar
+         <ion-button type="submit" [disabled]="loading" fill="outline" class="drop" size="small" color="{{coloreo}}" slot="start">  
+          <ion-icon slot="start" name="checkmark-done-circle-outline"></ion-icon>editar<ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
       </ion-button>
        </div>
     </form>

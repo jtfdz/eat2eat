@@ -8,13 +8,15 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+  //baseUrl: string = 'https://moviles03.herokuapp.com';
   baseUrl: string = 'http://localhost:3000';
 
+
   httpOptions = {
-      withCredentials: true
+    withCredentials: true
   };
 
-  
+
   constructor(
   	private http : HttpClient,
   	private router: Router, 
@@ -87,6 +89,8 @@ export class AuthService {
     });
     await alert.present();
   }
+
+  
 
 
   

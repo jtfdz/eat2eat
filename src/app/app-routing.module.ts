@@ -35,10 +35,26 @@ const routes: Routes = [
     path: 'borrar-establecimiento/:id',
     loadChildren: () => import('./borrar-establecimiento/borrar-establecimiento.module').then( m => m.BorrarEstablecimientoPageModule)
   },
-  // {
-  //   path: 'dashboard-individual',
-  //   loadChildren: () => import('./dashboard-individual/dashboard-individual.module').then( m => m.DashboardIndividualPageModule)
-  // },
+  {
+    path: 'crear-producto',
+    loadChildren: () => import('./crear-producto/crear-producto.module').then( m => m.CrearProductoPageModule)
+  },
+  {
+    path: 'editar-producto',
+    loadChildren: () => import('./editar-producto/editar-producto.module').then( m => m.EditarProductoPageModule)
+  },
+  {
+    path: 'borrar-producto',
+    loadChildren: () => import('./borrar-producto/borrar-producto.module').then( m => m.BorrarProductoPageModule)
+  },
+  {
+    path: 'dashboard-productos/:id',
+    loadChildren: () => import('./dashboard-productos/dashboard-productos.module').then( m => m.DashboardProductosPageModule)
+  },   {
+    path: 'dashboard-productos-individual',
+    loadChildren: () => import('./dashboard-productos-individual/dashboard-productos-individual.module').then( m => m.DashboardProductosIndividualPageModule)
+  },
+  
 ];
 
 @NgModule({

@@ -19,7 +19,7 @@ const routes: Routes = [
       {
         path: 'dashboard-individual',
         loadChildren: () => import('../dashboard-individual/dashboard-individual.module').then( m => m.DashboardIndividualPageModule)
-      },
+      },   
     ],
   }
 ];

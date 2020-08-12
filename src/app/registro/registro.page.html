@@ -4,7 +4,7 @@
       𝖊𝖆𝖙𝟐𝖊𝖆𝖙
     </ion-title>
 
-      <ion-button [routerLink]="['/home']" class="drop" fill="outline" slot="end" size="small" color="warning"><ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver</ion-button>
+      <ion-button [routerLink]="['/home']" [disabled]="loading" class="drop" fill="outline" slot="end" size="small" color="warning"><ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver</ion-button>
 
 
   </ion-toolbar>
@@ -45,14 +45,14 @@
       <ion-col size="5">
       <ion-item>
         <ion-label color="dark" position="stacked">nombre:</ion-label>
-        <ion-input formControlName="nombre" type="email" color="warning" placeholder="ej: vilma"></ion-input>
+        <ion-input formControlName="nombre" [disabled]="loading" type="email" color="warning" placeholder="ej: vilma"></ion-input>
       </ion-item>  
       </ion-col>
 
       <ion-col size="6">
       <ion-item>
         <ion-label color="dark" position="stacked">usuario:</ion-label>
-        <ion-input formControlName="username" type="text" color="warning" placeholder="ej: vilmacho"></ion-input>
+        <ion-input formControlName="username" [disabled]="loading" type="text" color="warning" placeholder="ej: vilmacho"></ion-input>
       </ion-item>
       </ion-col>
 
@@ -64,7 +64,7 @@
 
       <ion-item>
         <ion-label color="dark" position="stacked">correo:</ion-label>
-        <ion-input formControlName="email" type="email" color="primary" placeholder="ej: vilma@vilma.com"></ion-input>
+        <ion-input formControlName="email" [disabled]="loading" type="email" color="primary" placeholder="ej: vilma@vilma.com"></ion-input>
       </ion-item>   
 
       </ion-col>   
@@ -79,14 +79,14 @@
       <ion-col size="6">
         <ion-item>
         <ion-label color="dark" position="stacked">contraseña:</ion-label>
-        <ion-input formControlName="password" color="danger" type="password" placeholder="******"></ion-input>
+        <ion-input formControlName="password" [disabled]="loading" color="danger" type="password" placeholder="******"></ion-input>
         </ion-item>
       </ion-col>
 
       <ion-col size="5">
         <ion-item>
         <ion-label color="dark" position="stacked">confirmar:</ion-label>
-        <ion-input formControlName="passwordconfirmation" color="danger" type="password" placeholder="******"></ion-input>
+        <ion-input formControlName="passwordconfirmation" [disabled]="loading" color="danger" type="password" placeholder="******"></ion-input>
         </ion-item>
       </ion-col>
       </ion-row></ion-grid>
@@ -95,7 +95,7 @@
 
 
        <div class="fullheight xc">  
-        <ion-button type="submit" [disabled]="ionicForm.invalid" color="primary" fill="outline" size="small">confirmar</ion-button>
+        <ion-button (click)="load($event)" type="submit" [disabled]="ionicForm.invalid" color="primary" fill="solid" size="small">confirmar<ion-spinner *ngIf="loading" name="crescent"></ion-spinner></ion-button>
        </div>
     </form>
 

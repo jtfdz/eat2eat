@@ -16,6 +16,7 @@ export class BorrarEstablecimientoPage  implements OnInit{
 	direccion: String;
 	descripcion: String;
 	contacto: String;
+	loading: boolean = true;
 
   constructor(
   	public authService : AuthService,
@@ -46,6 +47,7 @@ export class BorrarEstablecimientoPage  implements OnInit{
 						this.direccion = datos['direccion_establecimiento'];
 						this.descripcion = datos['descripcion_establecimiento'];
 						this.contacto = datos['contacto_establecimiento'];
+						this.loading = false;
                        break; 
                      } 
                      default: { 

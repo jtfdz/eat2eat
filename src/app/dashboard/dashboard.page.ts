@@ -12,6 +12,7 @@ export class DashboardPage {
 
   baseUrl: string = '/establecimientos';	
   arr : any = [];
+  loading: boolean = true;
 
 
   constructor(
@@ -24,15 +25,17 @@ export class DashboardPage {
     this.authService.presentAlertConfirm();
   }
 
-    ionViewWillEnter(){
+  ionViewWillEnter(){
     this.arr = [];
   	this.authService.getRequest(this.baseUrl)
         .then((response) => {
+          console.log(response)
           switch(response['status']) { 
                     case 200: { 
                     	for (let entry of response['data']){
                     		this.arr.push(entry);
                     	}
+                      this.loading = false;
                        break; 
                      } 
                      default: { 
@@ -49,11 +52,8 @@ export class DashboardPage {
         
   ionViewDidLeave(){
     this.arr = [];
-
+    this.loading = true;
   }
-
-
-
 
 
 

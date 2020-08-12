@@ -14,6 +14,8 @@ export class HomePage implements OnInit {
   ionicForm: FormGroup;
   baseUrl: string = '/login';
   error: boolean = false;
+  loading: boolean = false;
+  boton: HTMLInputElement;
 
   ngOnInit() {
 
@@ -33,6 +35,22 @@ export class HomePage implements OnInit {
 	    });
 	}
 
+  load(event: Event) {
+    this.loading = true;
+    this.boton = (event.target as HTMLInputElement);    
+    this.boton.disabled = true;
+  }
+
+
+  showLoading(boo){
+    this.boton.disabled = boo;
+    this.loading = boo;
+  }
+
+  ionViewDidLeave(){
+    if(this.boton)
+    this.showLoading(false);
+  }
 
 
   iniciar(){
@@ -46,6 +64,16 @@ export class HomePage implements OnInit {
                           this.ionicForm.reset();
                        break; 
                      } 
+                    case 500: { 
+                          alert('~por favor chequee su conexión a internet~')
+                          this.showLoading(false);
+                       break; 
+                     }   
+                    case 304: { 
+                          alert('~ya has iniciado sesión~')
+                          this.showLoading(false);
+                       break; 
+                     }                                             
                      default: { 
                       this.error = true;
                        break; 

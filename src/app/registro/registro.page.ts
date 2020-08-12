@@ -13,6 +13,8 @@ export class RegistroPage {
 
   ionicForm: FormGroup;
   baseUrl: string = '/registro';
+  loading: boolean = false;
+  boton: HTMLInputElement; 
 
   constructor(private router: Router, 
     public formBuilder: FormBuilder, 
@@ -36,6 +38,24 @@ export class RegistroPage {
     return group.get('password').value === group.get('passwordconfirmation').value;
   }
 
+
+  //unificar con home en un servicio
+  load(event: Event) {
+    this.loading = true;
+    this.boton = (event.target as HTMLInputElement);    
+    this.boton.disabled = true;
+  }
+
+  showLoading(boo){
+    this.boton.disabled = boo;
+    this.loading = boo;
+  }  
+
+  ionViewDidLeave(){
+    if(this.boton)
+    this.showLoading(false);
+  }  
+
   iniciar(){
     this.authService.postRequest(this.baseUrl, this.ionicForm.value)
     .then((response) => {
@@ -46,6 +66,16 @@ export class RegistroPage {
                       this.ionicForm.reset();
                    break; 
                  } 
+                case 500: { 
+                          alert('~por favor chequee su conexión a internet~')
+                          this.showLoading(false);
+                       break; 
+                     }   
+                case 304: { 
+                          alert('~ya has iniciado sesión~')
+                          this.showLoading(false);
+                       break; 
+                     }                   
                  default: { 
                    console.log('pelaste man');
                    break; 

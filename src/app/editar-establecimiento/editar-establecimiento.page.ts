@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../auth.service';
+import { AuthService } from '../auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -18,6 +18,7 @@ export class EditarEstablecimientoPage implements OnInit {
 	direccion: String;
 	descripcion: String;
 	contacto: String;
+	loading: boolean = true;
 
   constructor(
     public authService : AuthService,
@@ -31,7 +32,7 @@ export class EditarEstablecimientoPage implements OnInit {
 	}
 
 	logout(){
-    this.authService.presentAlertConfirm();
+    	this.authService.presentAlertConfirm();
   	}
 
   createMyForm(){
@@ -58,6 +59,7 @@ export class EditarEstablecimientoPage implements OnInit {
 						this.direccion = datos['direccion_establecimiento'];
 						this.descripcion = datos['descripcion_establecimiento'];
 						this.contacto = datos['contacto_establecimiento'];
+						this.loading = false;
                        break; 
                      } 
                      default: { 

@@ -1,0 +1,64 @@
+<ion-header  class="ion-no-border">
+  <ion-toolbar>
+      <ion-title color="dark" size="large" class="drop">
+      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
+      </ion-title>
+
+    <ion-button (click)="logout()" class="drop" size="small" color="danger" slot="end">  
+      <ion-icon slot="start" name="log-out-outline"></ion-icon></ion-button>
+
+
+      <ion-button [routerLink]="['/tabnav']" class="drop" fill="outline" slot="end" size="small" color="warning"><ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver</ion-button>
+ 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+   <div class="fullheight xc" *ngIf="loading"> 
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+
+
+      <ion-card *ngIf="!loading">
+        <ion-item>
+            <ion-text color="{{info.coloreo}}"><h4><strong>{{info.nombre}}</strong></h4></ion-text>  
+            <ion-button icon-only routerLink="" slot="end" color="{{info.coloreo}}"><ion-icon name="locate"></ion-icon></ion-button>            
+        </ion-item> 
+        <ion-card-content>
+        <ion-text>
+          <h4><strong><u><ion-text color="{{info.coloreo}}">descripción:</ion-text> </u></strong></h4><h4> {{info.descripcion}}</h4>
+        </ion-text>
+        <ion-text>
+          <h4><strong><u><ion-text color="{{info.coloreo}}">dirección:</ion-text> </u></strong></h4><h4> {{info.direccion}}</h4>
+        </ion-text>
+        <ion-text>
+          <h4><strong><u><ion-text color="{{info.coloreo}}">contactos:</ion-text> </u></strong></h4><h4> {{info.contacto}}</h4>
+        </ion-text>
+        </ion-card-content>
+      </ion-card>
+
+    <ion-list>
+      <ion-card *ngFor="let pro of arr">
+        <ion-item>
+            <ion-text color="{{pro.color_establecimiento}}"><h4><strong>{{pro.nombre_producto}} </strong><small> {{pro.tiempo_espera_producto}}m</small></h4></ion-text>  
+            <ion-button icon-only routerLink="/carrito/{{pro.id_producto}}"  slot="end" color="secondary"><ion-icon name="cart"></ion-icon></ion-button>
+        </ion-item> 
+        <ion-card-content>
+        <ion-text>
+          <h4><strong><u><ion-text color="{{pro.color_establecimiento}}">precio:</ion-text> </u></strong></h4><h4> {{pro.precio_producto}}</h4>
+        </ion-text>          
+        <ion-text>
+          <h4><strong><u><ion-text color="{{pro.color_establecimiento}}">descripción:</ion-text> </u></strong></h4><h4> {{pro.descripcion_producto}}</h4>
+        </ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+
+
+
+
+
+
+</ion-content>

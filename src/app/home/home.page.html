@@ -4,7 +4,7 @@
     𝖊𝖆𝖙𝟐𝖊𝖆𝖙
     </ion-title>
 
-    <ion-button [routerLink]="['/registro']" class="drop" fill="outline" size="small" color="primary"  slot="end"><ion-icon slot="start" name="star"></ion-icon>registro</ion-button>
+    <ion-button [routerLink]="['/registro']" [disabled]="loading" class="drop" fill="outline" size="small" color="primary"  slot="end"><ion-icon slot="start" name="star"></ion-icon>registro</ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -41,16 +41,16 @@
       <form [formGroup]="ionicForm" (ngSubmit)="iniciar()">
       <ion-item>
         <ion-label color="dark" position="floating">usuario</ion-label>
-        <ion-input formControlName="username" type="text" color="warning" placeholder="ej: vilma2000" ></ion-input>
+        <ion-input [disabled]="loading" formControlName="username" type="text" color="warning" placeholder="ej: vilma2000" ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label color="dark" position="floating">contraseña</ion-label>
-        <ion-input formControlName="password" color="danger" type="password" placeholder="*********" ></ion-input>
+        <ion-input [disabled]="loading" formControlName="password" color="danger" type="password" placeholder="*********" ></ion-input>
       </ion-item>
 
         <div class="fullheight xc">
-        <ion-button type="submit" [disabled]="ionicForm.invalid" color="secondary" fill="outline" size="small">acceder</ion-button>
+        <ion-button (click)="load($event)" type="submit" [disabled]="ionicForm.invalid" color="secondary" fill="solid" size="small">acceder<ion-spinner *ngIf="loading" name="crescent"></ion-spinner></ion-button>
         </div>
 
 

@@ -12,7 +12,17 @@
 
 <ion-content>
 
-    <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+    <div class="fullheight xc" *ngIf="loading"> 
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+
+    <div class="fullheight xc" *ngIf="!loading && arr.length == 0"> 
+      <ion-text color="medium">
+        <p><strong><small>aún no has creado<br> un establecimiento</small></strong></p>
+      </ion-text>
+    </div>
+
+    <ion-list>
       <ion-card *ngFor="let est of arr">
         <ion-item>
             <ion-text color="{{est.color_establecimiento}}"><h4><strong>{{est.nombre_establecimiento}}</strong></h4></ion-text>  

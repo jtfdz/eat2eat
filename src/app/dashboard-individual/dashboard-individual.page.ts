@@ -15,6 +15,7 @@ export class DashboardIndividualPage{
   nombre: string;
   borrado: boolean = false;  
   editado: boolean = false; 
+  loading: boolean = true;
 
 
   constructor(
@@ -35,6 +36,7 @@ export class DashboardIndividualPage{
                     	for (let entry of response['data']){
                     		this.arr.push(entry);
                     	}
+                      this.loading = false;
                        break; 
                      } 
                      default: { 
@@ -50,30 +52,15 @@ export class DashboardIndividualPage{
 
         
 
-   reorderItems(indexes){
-   	
-   }
-
-
-
-
 
 
   ionViewDidLeave(){
   	this.arr = [];
     this.borrado = false;
-    this.editado = false;   
+    this.editado = false;
+    this.loading = true;   
   }
 
-
-  pin(notas){
-    console.log(notas);
-  }
-
-  //pagina nueva
-  editar(notas){
-    console.log(notas);
-  }  
 
   activarBorrado(){
     this.borrado = !this.borrado;
