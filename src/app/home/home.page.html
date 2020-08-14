@@ -1,60 +1,31 @@
-<ion-header  class="ion-no-border">
-  <ion-toolbar>
-    <ion-title color="dark" size="large" class="drop">
-    𝖊𝖆𝖙𝟐𝖊𝖆𝖙
-    </ion-title>
 
-    <ion-button [routerLink]="['/registro']" [disabled]="loading" class="drop" fill="outline" size="small" color="primary"  slot="end"><ion-icon slot="start" name="star"></ion-icon>registro</ion-button>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+<ion-content padding class="background">
   <div class="fullheight xc"> 
     <ion-item-group>
 
-      <div class="fullheight xc"> 
-      <ion-item>
-        <ion-avatar>
-          <img src="/assets/media/fruit1.png">
-        </ion-avatar>
-        <ion-avatar>
-          <img src="/assets/media/fruit2.png">
-        </ion-avatar>
-         <ion-avatar>
-          <img src="/assets/media/fruit3.png">
-        </ion-avatar>
-          <ion-avatar>
-          <img src="/assets/media/fruit4.png">
-        </ion-avatar>
+
+
+
+<ion-card>
+  <ion-card-header>
+        <ion-card-title>
+          <div class="xc">
+        <ion-text color="dark"><h1>𝖊𝖆𝖙𝟐𝖊𝖆𝖙</h1></ion-text>
+        <ion-item lines="none">
+        <ion-icon name="restaurant-outline"></ion-icon>
       </ion-item>
-      </div>
-
-
-      <!-- colocar icons -->
-
-      <div class="fullheight xc" id="titulo-app">    
-        <ion-label color="dark">iniciar sesión</ion-label>   
-      </div>
-
-        <ion-text class="achicar" color="danger" *ngIf="error">los datos ingresados no están registrados</ion-text>
-
-      <form [formGroup]="ionicForm" (ngSubmit)="iniciar()">
-      <ion-item>
-        <ion-label color="dark" position="floating">usuario</ion-label>
-        <ion-input [disabled]="loading" formControlName="username" type="text" color="warning" placeholder="ej: vilma2000" ></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label color="dark" position="floating">contraseña</ion-label>
-        <ion-input [disabled]="loading" formControlName="password" color="danger" type="password" placeholder="*********" ></ion-input>
-      </ion-item>
-
-        <div class="fullheight xc">
-        <ion-button (click)="load($event)" type="submit" [disabled]="ionicForm.invalid" color="secondary" fill="solid" size="small">acceder<ion-spinner *ngIf="loading" name="crescent"></ion-spinner></ion-button>
-        </div>
-
-
-      </form>
+       </div>
+     </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+      <div class="xc"><ion-text color="dark"><p><small>¡contacta a tu restaurante!</small></p></ion-text></div>
+       <ion-buttons>
+    <ion-button [routerLink]="['/registro']" [disabled]="loading" class="drop" fill="outline" size="small" color="primary"  slot="end"><small>registro</small></ion-button>
+        <ion-button [routerLink]="['/login']" [disabled]="loading" class="drop" fill="outline" size="small" color="warning"  slot="end"><small>iniciar sesión</small></ion-button>
+      </ion-buttons>
+      </ion-card-content>
+</ion-card>
 
 
    </ion-item-group>

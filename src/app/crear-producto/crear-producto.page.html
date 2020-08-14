@@ -1,9 +1,64 @@
-<ion-header>
+<ion-header  class="ion-no-border">
   <ion-toolbar>
-    <ion-title>crear-producto</ion-title>
+      <ion-title color="dark" size="large" slot="start" class="drop">
+      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
+      </ion-title>
+    <ion-button (click)="logout()" class="drop" size="small" color="danger" slot="end">  
+    <ion-icon slot="start" name="log-out-outline"></ion-icon></ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="fullheight xc">
+    <ion-item-group>
+
+        <div class="fullheight xc"><ion-thumbnail class="bigger"><img src="/assets/media/chuches.png"></ion-thumbnail></div>
+
+      <div class="fullheight xc" id="titulo-app">    
+        <ion-label color="dark">𝖈𝖗𝖊𝖆𝖗 𝖕𝖗𝖔𝖉𝖚𝖈𝖙𝖔</ion-label>     
+      </div>
+
+    <form [formGroup]="ionicForm" (ngSubmit)="iniciar()">
+
+      <ion-item>
+        <ion-label color="success" position="floating"><small>nombre</small></ion-label>
+        <ion-input formControlName="nombre" type="text" placeholder="ej: manzana" ></ion-input>     
+      </ion-item>
+
+      <ion-item>
+          <ion-label color="success" position="stacked"><small>descripción</small></ion-label>
+          <ion-textarea formControlName="descripcion" inputmode="text" placeholder="ej: color rojizo, fresca, refrigerada"></ion-textarea>         
+      </ion-item>    
+
+      <ion-item>
+        <ion-label color="success" position="floating"><small>tiempo de preparación</small></ion-label>
+        <ion-input formControlName="tiempo" type="text" placeholder="expresado en minutos => ej: 2m" ></ion-input>         
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="success" position="floating"><small>precio</small></ion-label>
+        <ion-input formControlName="precio" type="text" placeholder="sin puntuación => ej: 59999" ></ion-input>         
+      </ion-item>
+  
+
+
+       <div class="fullheight xc">  
+        <ion-button (click)="volver()" fill="outline" class="drop" size="small" color="warning" slot="start">  
+          <ion-icon slot="start" disabled="!loading" name="arrow-back-circle-outline"></ion-icon>volver
+      </ion-button>
+         <ion-button type="submit" [disabled]="ionicForm.invalid && !loading" fill="outline" class="drop" size="small" color="success" slot="start">  
+          <ion-icon slot="start" name="checkmark-done-circle-outline"></ion-icon>guardar<ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+      </ion-button>
+       </div>
+
+    </form>
+
+   </ion-item-group>
+  </div>
+
+
+
+
+
 
 </ion-content>

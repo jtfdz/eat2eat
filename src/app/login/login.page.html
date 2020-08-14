@@ -1,0 +1,47 @@
+<ion-header  class="ion-no-border">
+  <ion-toolbar>
+    <ion-title color="dark" size="large" class="drop">
+    𝖊𝖆𝖙𝟐𝖊𝖆𝖙
+    </ion-title>
+
+      <ion-button [routerLink]="['/home']" [disabled]="loading" class="drop" fill="outline" slot="end" size="small" color="danger"><ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="fullheight xc"> 
+    <ion-item-group>
+
+      <div class="fullheight xc"> 
+          <img src="/assets/media/cakes.gif">
+      </div>
+
+
+      <div class="fullheight xc" id="titulo-app">    
+        <ion-label color="dark"><h1>𝖎𝖓𝖎𝖈𝖎𝖆𝖗 𝖘𝖊𝖘𝖎𝖔́𝖓</h1></ion-label>   
+      </div>
+
+        <div class="fullheight hcs"><ion-text color="danger" *ngIf="error"><small><u>{{errorText}}</u></small></ion-text> </div>
+
+      <form [formGroup]="ionicForm" (ngSubmit)="iniciar()">
+      <ion-item>
+        <ion-label color="dark" position="floating">usuario</ion-label>
+        <ion-input [disabled]="loading" formControlName="username" type="text" color="danger" placeholder="ej: vilma2000" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="dark" position="floating">contraseña</ion-label>
+        <ion-input [disabled]="loading" formControlName="password" color="danger" type="password" placeholder="*********" ></ion-input>
+      </ion-item>
+
+        <div class="fullheight xc">
+        <ion-button (click)="load($event)" type="submit" [disabled]="ionicForm.invalid" color="danger" fill="solid" size="small">acceder<ion-spinner *ngIf="loading" name="crescent"></ion-spinner></ion-button>
+        </div>
+
+
+      </form>
+
+
+   </ion-item-group>
+  </div>
+</ion-content>

@@ -78,7 +78,7 @@ export class EditarEstablecimientoPage implements OnInit {
 	              console.log(response)
 	              switch(response['status']) { 
 	                  case 200: { 
-	                    this.router.navigate(['/tabnav']); 
+	                    this.authService.devolver();
 	                     break; 
 	                   } 
 	                   default: { 

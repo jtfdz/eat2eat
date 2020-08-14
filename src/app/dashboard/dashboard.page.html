@@ -17,7 +17,10 @@
     </div>
 
 
-    <ion-list reorder="true">
+    <ion-list *ngIf="!loading">
+      <ion-item lines="none"></ion-item>
+        <div class="fullheight xc"><img class="rainbow" src="/assets/media/rainbow.gif"></div>
+      <div class="xc">𝖙𝖔𝖉𝖔𝖘 𝖑𝖔𝖘 𝖊𝖘𝖙𝖆𝖇𝖑𝖊𝖈𝖎𝖒𝖎𝖊𝖓𝖙𝖔𝖘</div>
       <ion-card *ngFor="let est of arr">
         <ion-item>
             <ion-button routerLink="/dashboard-productos/{{est.id_establecimiento}}" icon-only slot="end" color="{{est.color_establecimiento}}"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>

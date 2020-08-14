@@ -8,7 +8,7 @@
       <ion-icon slot="start" name="log-out-outline"></ion-icon></ion-button>
 
 
-      <ion-button [routerLink]="['/tabnav']" class="drop" fill="outline" slot="end" size="small" color="warning"><ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver</ion-button>
+      <ion-button (click)="atras()" class="drop" fill="outline" slot="end" size="small" color="warning"><ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver</ion-button>
  
   </ion-toolbar>
 </ion-header>
@@ -19,6 +19,9 @@
       <ion-spinner name="crescent"></ion-spinner>
     </div>
 
+    <ion-item lines="none" *ngIf="!loading">
+    <div class="fullheight xc"><img class="rainbow" src="/assets/media/rainbow.gif"></div>
+    </ion-item>
 
       <ion-card *ngIf="!loading">
         <ion-item>
@@ -38,10 +41,11 @@
         </ion-card-content>
       </ion-card>
 
-    <ion-list>
+    <ion-list *ngIf="!loading">
+      <div class="xc"><ion-icon name="fast-food-outline"></ion-icon></div>
       <ion-card *ngFor="let pro of arr">
         <ion-item>
-            <ion-text color="{{pro.color_establecimiento}}"><h4><strong>{{pro.nombre_producto}} </strong><small> {{pro.tiempo_espera_producto}}m</small></h4></ion-text>  
+            <ion-text color="{{pro.color_establecimiento}}"><p><strong>{{pro.nombre_producto}} </strong><small> <ion-icon name="time-outline"></ion-icon>{{pro.tiempo_espera_producto}}m</small></p></ion-text>  
             <ion-button icon-only routerLink="/carrito/{{pro.id_producto}}"  slot="end" color="secondary"><ion-icon name="cart"></ion-icon></ion-button>
         </ion-item> 
         <ion-card-content>

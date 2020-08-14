@@ -3,17 +3,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
-
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss', '../app.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss', '../app.component.scss'],
 })
-export class HomePage implements OnInit {
+export class LoginPage implements OnInit {
 
   ionicForm: FormGroup;
   baseUrl: string = '/login';
   error: boolean = false;
+  errorText: String = '~los datos ingresados no están registrados~';
   loading: boolean = false;
   boton: HTMLInputElement;
 
@@ -52,6 +52,12 @@ export class HomePage implements OnInit {
     this.showLoading(false);
   }
 
+  showError(errorMsg){
+    this.error = true;
+    this.errorText = errorMsg;
+    this.showLoading(false);
+  }
+
 
   iniciar(){
     
@@ -65,13 +71,11 @@ export class HomePage implements OnInit {
                        break; 
                      } 
                     case 500: { 
-                          alert('~por favor chequee su conexión a internet~')
-                          this.showLoading(false);
+                          this.showError('~por favor chequee su conexión a internet~')
                        break; 
                      }   
                     case 304: { 
-                          alert('~ya has iniciado sesión~')
-                          this.showLoading(false);
+                          this.showError('~ya has iniciado sesión~')
                        break; 
                      }                                             
                      default: { 
@@ -81,10 +85,8 @@ export class HomePage implements OnInit {
                   }
         }).catch(error => {
             console.log(error);
-            this.error = true;
-            this.showLoading(false);
+            this.showError('~los datos ingresados no están registrados~')
             });
 
     }
-
-};
+}

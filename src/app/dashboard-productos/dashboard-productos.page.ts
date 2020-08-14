@@ -10,9 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DashboardProductosPage implements OnInit {
 
   baseUrl: string = '/productos/';	
+  baseUrlEst: string = '/establecimiento/'; 
   id = null;
   loading: boolean = true;
   arr : any = [];
+  arrEst : any = [];
   info: any = {
     coloreo: '',
     contacto: '',
@@ -31,28 +33,52 @@ export class DashboardProductosPage implements OnInit {
     this.authService.presentAlertConfirm();
   	}
 
+   atras(){
+    this.authService.devolver();
+    }
+
   ngOnInit(){
 		this.id = this.activatedRoute.snapshot.paramMap.get('id');
 	}
 
 	ionViewWillEnter(){
-  	this.authService.getRequest(this.baseUrl + this.id)
+    this.authService.getRequest(this.baseUrlEst + this.id)
+        .then((response) => {
+          switch(response['status']) { 
+                    case 200: { 
+                      for (let entry of response['data']){
+                        this.arrEst.push(entry);
+                      }
+                      this.info.coloreo = this.arrEst[0].color_establecimiento;
+                      this.info.contacto = this.arrEst[0].contacto_establecimiento;
+                      this.info.descripcion = this.arrEst[0].descripcion_establecimiento;
+                      this.info.direccion = this.arrEst[0].direccion_establecimiento;
+                      this.info.nombre = this.arrEst[0].nombre_establecimiento;
+                       break; 
+                     } 
+                     default: { 
+                       console.log('ERROR: d-p-i: get');
+                       break; 
+                    } 
+                  }
+        }).catch(error => {
+            console.log(error);
+            });
+
+
+
+    this.authService.getRequest(this.baseUrl + this.id)
         .then((response) => {
           switch(response['status']) { 
                     case 200: { 
                       for (let entry of response['data']){
                         this.arr.push(entry);
                       }
-                      this.info.coloreo = this.arr[0].color_establecimiento;
-                      this.info.contacto = this.arr[0].contacto_establecimiento;
-                      this.info.descripcion = this.arr[0].descripcion_establecimiento;
-                      this.info.direccion = this.arr[0].direccion_establecimiento;
-                      this.info.nombre = this.arr[0].nombre_establecimiento;
-						          this.loading = false;
+                      this.loading = false;
                        break; 
                      } 
                      default: { 
-                       console.log('ERROR: d-p: get');
+                       console.log('ERROR: d-p-i: get');
                        break; 
                     } 
                   }

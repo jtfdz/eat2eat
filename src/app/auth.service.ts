@@ -2,25 +2,31 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  //baseUrl: string = 'https://moviles03.herokuapp.com';
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl: string = 'https://moviles03.herokuapp.com';
+  //baseUrl: string = 'http://localhost:3000';
 
 
   httpOptions = {
     withCredentials: true
   };
 
+  devolver(){
+    this._location.back();
+  }
+
 
   constructor(
   	private http : HttpClient,
   	private router: Router, 
-  	public alertController: AlertController
+  	public alertController: AlertController,
+    private _location: Location
   	) { }
 
   public postRequest(url, grupoForma) {
@@ -82,7 +88,7 @@ export class AuthService {
         }, {
           text: 'sí',
           handler: () => {
-            this.router.navigate(['/tabnav']); 
+            this._location.back();
           }
         }
       ]

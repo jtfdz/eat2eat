@@ -17,15 +17,22 @@
     </div>
 
     <div class="fullheight xc" *ngIf="!loading && arr.length == 0"> 
+      <ion-item lines="none"></ion-item>
+        <div class="fullheight xc"><img class="rainbow" src="/assets/media/rainbow.gif"></div>
+      <div class="xc">𝖒𝖎𝖘 𝖊𝖘𝖙𝖆𝖇𝖑𝖊𝖈𝖎𝖒𝖎𝖊𝖓𝖙𝖔𝖘</div>
       <ion-text color="medium">
         <p><strong><small>aún no has creado<br> un establecimiento</small></strong></p>
       </ion-text>
     </div>
 
-    <ion-list>
+    <ion-list *ngIf="!loading">
+      <ion-item lines="none"></ion-item>
+        <div class="fullheight xc"><img class="rainbow" src="/assets/media/rainbow.gif"></div>
+      <div class="xc">𝖒𝖎𝖘 𝖊𝖘𝖙𝖆𝖇𝖑𝖊𝖈𝖎𝖒𝖎𝖊𝖓𝖙𝖔𝖘</div>
       <ion-card *ngFor="let est of arr">
         <ion-item>
-            <ion-text color="{{est.color_establecimiento}}"><h4><strong>{{est.nombre_establecimiento}}</strong></h4></ion-text>  
+            <ion-text color="{{est.color_establecimiento}}"><h4><strong>{{est.nombre_establecimiento}}</strong></h4></ion-text> 
+            <ion-button *ngIf="!borrado && !editado" routerLink="/dashboard-productos-individual/{{est.id_establecimiento}}" icon-only slot="end" color="{{est.color_establecimiento}}"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>
             <ion-button routerLink="/borrar-establecimiento/{{est.id_establecimiento}}" *ngIf="borrado" icon-only  slot="end" color="danger"><ion-icon name="trash"></ion-icon></ion-button>
             <ion-button *ngIf="editado" icon-only routerLink="/editar-establecimiento/{{est.id_establecimiento}}"  slot="end" color="secondary"><ion-icon name="brush-outline"></ion-icon></ion-button>
         </ion-item> 
@@ -44,16 +51,16 @@
     </ion-list>
 
 
-   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="secondary" size="small"><ion-icon name="settings"></ion-icon></ion-fab-button>
+   <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="!loading">
+    <ion-fab-button color="secondary" size="small"><ion-icon size="small" name="settings"></ion-icon></ion-fab-button>
     <ion-fab-list side="top">
-      <ion-fab-button *ngIf="!borrado && !editado" color="dark" [routerLink]="['/crear-establecimiento']" size="large">
-        <ion-icon name="add"></ion-icon>
+      <ion-fab-button *ngIf="!borrado && !editado" color="success" [routerLink]="['/crear-establecimiento']" size="large">
+        <ion-icon name="add-outline"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button id="editadoactivo" *ngIf="!borrado" color="dark" (click)="activarEditado()">
+      <ion-fab-button id="editadoactivo" *ngIf="!borrado" color="warning" (click)="activarEditado()">
         <ion-icon name="brush-outline"></ion-icon>
       </ion-fab-button >
-      <ion-fab-button *ngIf="!editado" id="borradoactivo" color="dark" (click)="activarBorrado()">
+      <ion-fab-button *ngIf="!editado" id="borradoactivo" color="danger" (click)="activarBorrado()">
         <ion-icon name="trash-outline"></ion-icon>
       </ion-fab-button>                    
     </ion-fab-list>

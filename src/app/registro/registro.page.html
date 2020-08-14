@@ -18,24 +18,12 @@
     <ion-item-group>
 
       <div class="fullheight xc"> 
-      <ion-item>
-        <ion-avatar>
-          <img src="/assets/media/fruit5.png">
-        </ion-avatar>
-        <ion-avatar>
-          <img src="/assets/media/fruit6.png">
-        </ion-avatar>
-         <ion-avatar>
-          <img src="/assets/media/fruit7.png">
-        </ion-avatar>
-          <ion-avatar>
-          <img src="/assets/media/fruit8.png">
-        </ion-avatar>
-      </ion-item>
+        <img src="/assets/media/pancakes.png">
       </div>
 
+
       <div class="fullheight xc" id="titulo-app">    
-        <ion-label color="dark">registro</ion-label>     
+        <ion-label color="dark">𝖗𝖊𝖌𝖎𝖘𝖙𝖗𝖔</ion-label>     
       </div>
 
     <form [formGroup]="ionicForm" (ngSubmit)="iniciar()">
@@ -64,7 +52,7 @@
 
       <ion-item>
         <ion-label color="dark" position="stacked">correo:</ion-label>
-        <ion-input formControlName="email" [disabled]="loading" type="email" color="primary" placeholder="ej: vilma@vilma.com"></ion-input>
+        <ion-input formControlName="email" [disabled]="loading" type="email" color="warning" placeholder="ej: vilma@vilma.com"></ion-input>
       </ion-item>   
 
       </ion-col>   
@@ -79,14 +67,14 @@
       <ion-col size="6">
         <ion-item>
         <ion-label color="dark" position="stacked">contraseña:</ion-label>
-        <ion-input formControlName="password" [disabled]="loading" color="danger" type="password" placeholder="******"></ion-input>
+        <ion-input formControlName="password" [disabled]="loading" color="warning" type="password" placeholder="******"></ion-input>
         </ion-item>
       </ion-col>
 
       <ion-col size="5">
         <ion-item>
         <ion-label color="dark" position="stacked">confirmar:</ion-label>
-        <ion-input formControlName="passwordconfirmation" [disabled]="loading" color="danger" type="password" placeholder="******"></ion-input>
+        <ion-input formControlName="passwordconfirmation" [disabled]="loading" color="warning" type="password" placeholder="******"></ion-input>
         </ion-item>
       </ion-col>
       </ion-row></ion-grid>
@@ -95,7 +83,7 @@
 
 
        <div class="fullheight xc">  
-        <ion-button (click)="load($event)" type="submit" [disabled]="ionicForm.invalid" color="primary" fill="solid" size="small">confirmar<ion-spinner *ngIf="loading" name="crescent"></ion-spinner></ion-button>
+        <ion-button (click)="load($event)" type="submit" [disabled]="ionicForm.invalid" color="warning" fill="solid" size="small">confirmar<ion-spinner *ngIf="loading" name="crescent"></ion-spinner></ion-button>
        </div>
     </form>
 

@@ -78,11 +78,13 @@ export class RegistroPage {
                      }                   
                  default: { 
                    console.log('pelaste man');
+                   this.showLoading(false);
                    break; 
                 } 
               }
     }).catch(error => {
         console.log(error);
+        this.showLoading(false);
         });
   }
  
