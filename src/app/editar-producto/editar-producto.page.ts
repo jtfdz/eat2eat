@@ -54,7 +54,7 @@ export class EditarProductoPage implements OnInit {
           switch(response['status']) { 
                     case 200: { 
                     	let datos = response['data'][0];
-                    	this.nombre = datos['nombre_establecimiento'];
+                    	this.nombre = datos['nombre_producto'];
 						this.tiempo = datos['tiempo_espera_producto'];
 						this.precio = datos['precio_producto'];
 						this.descripcion = datos['descripcion_producto'];
@@ -72,6 +72,7 @@ export class EditarProductoPage implements OnInit {
 	  }
 
 	  editar(){
+	  	this.loading = true;
 	    this.authService.putRequest(this.baseUrl + this.id + '/editar', this.ionicForm.value)
 	            .then((response) => {
 	              console.log(response)

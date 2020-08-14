@@ -15,7 +15,7 @@ export class BorrarProductoPage implements OnInit {
 	tiempo: String;
 	precio: String;
 	descripcion: String;
-	loading: boolean = false;
+	loading: boolean = true;
 
   constructor(
   	public authService : AuthService,

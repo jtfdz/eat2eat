@@ -24,29 +24,29 @@
 
    <ion-item>
         <ion-label color="success" position="floating"><small>nombre</small></ion-label>
-        <ion-input formControlName="nombre" type="text" placeholder="ej: manzana" ></ion-input>     
+        <ion-input [disabled]="loading" formControlName="nombre" type="text" value="{{nombre}}"></ion-input>     
       </ion-item>
 
       <ion-item>
           <ion-label color="success" position="stacked"><small>descripción</small></ion-label>
-          <ion-textarea formControlName="descripcion" inputmode="text" placeholder="ej: color rojizo, fresca, refrigerada"></ion-textarea>         
+          <ion-textarea [disabled]="loading" formControlName="descripcion" inputmode="text" value="{{descripcion}}"></ion-textarea>         
       </ion-item>    
 
       <ion-item>
         <ion-label color="success" position="floating"><small>tiempo de preparación</small></ion-label>
-        <ion-input formControlName="tiempo" type="text" placeholder="expresado en minutos => ej: 2m" ></ion-input>         
+        <ion-input [disabled]="loading" formControlName="tiempo" type="text" value="{{tiempo}}"></ion-input>         
       </ion-item>
 
       <ion-item>
         <ion-label color="success" position="floating"><small>precio</small></ion-label>
-        <ion-input formControlName="precio" type="text" placeholder="sin puntuación => ej: 59999" ></ion-input>         
+        <ion-input [disabled]="loading" formControlName="precio" type="text"  value="{{precio}}"></ion-input>         
       </ion-item>
 
        <div class="fullheight xc">  
         <ion-button (click)="volver()" fill="outline" class="drop" size="small" color="warning" slot="start">  
           <ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver
       </ion-button>
-         <ion-button type="submit" [disabled]="loading" fill="outline" class="drop" size="small" color="{{coloreo}}" slot="start">  
+         <ion-button type="submit" [disabled]="loading" fill="outline" class="drop" size="small" color="success" slot="start">  
           <ion-icon slot="start" name="checkmark-done-circle-outline"></ion-icon>editar<ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
       </ion-button>
        </div>

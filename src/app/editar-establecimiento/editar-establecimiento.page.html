@@ -23,22 +23,22 @@
       
       <ion-item>
         <ion-label color="{{coloreo}}" position="floating"><small>nombre</small></ion-label>
-        <ion-input formControlName="nombre" value="{{nombre}}" type="text" ></ion-input>        
+        <ion-input [disabled]="loading" formControlName="nombre" value="{{nombre}}" type="text" ></ion-input>        
       </ion-item>
 
       <ion-item>
         <ion-label color="{{coloreo}}" position="floating"><small>descripción</small></ion-label>
-        <ion-input formControlName="descripcion"  value="{{descripcion}}" type="text" ></ion-input>        
+        <ion-input [disabled]="loading" formControlName="descripcion"  value="{{descripcion}}" type="text" ></ion-input>        
       </ion-item>
 
       <ion-item>
         <ion-label color="{{coloreo}}" position="floating"><small>dirección</small></ion-label>
-        <ion-input formControlName="direccion" value="{{direccion}}" type="text" ></ion-input>        
+        <ion-input [disabled]="loading" formControlName="direccion" value="{{direccion}}" type="text" ></ion-input>        
       </ion-item>
 
       <ion-item>
         <ion-label color="{{coloreo}}" position="floating"><small>contacto</small></ion-label>
-        <ion-input formControlName="contacto" value="{{contacto}}" type="text"></ion-input>        
+        <ion-input [disabled]="loading"  formControlName="contacto" value="{{contacto}}" type="text"></ion-input>        
       </ion-item>
 
 

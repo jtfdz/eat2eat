@@ -25,13 +25,13 @@
 
       <ion-item>
         <ion-label color="{{seleccionColor}}" position="floating"><small>nombre</small></ion-label>
-        <ion-input disabled="loading" formControlName="nombre" type="text" placeholder="ej: venta de manzanas polio" ></ion-input>        
+        <ion-input [disabled]="loading" formControlName="nombre" type="text" placeholder="ej: venta de manzanas polio" ></ion-input>        
       </ion-item>
 
       <ion-list>
         <ion-item>
           <ion-label color="{{seleccionColor}}"><small>color de presentación</small></ion-label>
-          <ion-select disabled="loading" formControlName="coloreo" [(ngModel)]="seleccionColor" placeholder="selección">
+          <ion-select [disabled]="loading" formControlName="coloreo" [(ngModel)]="seleccionColor" placeholder="selección">
             <ion-select-option value="dark">negro</ion-select-option>
             <ion-select-option value="primary">azul</ion-select-option>
             <ion-select-option value="secondary">cyan</ion-select-option>
@@ -43,25 +43,25 @@
 
       <ion-item>
         <ion-label color="{{seleccionColor}}" position="floating"><small>dirección</small></ion-label>
-        <ion-input disabled="loading" formControlName="direccion" type="text" placeholder="ej: centro comercial alfa, omega y ventas" ></ion-input>         
+        <ion-input [disabled]="loading" formControlName="direccion" type="text" placeholder="ej: centro comercial alfa, omega y ventas" ></ion-input>         
       </ion-item>
 
 
       <ion-item>
           <ion-label color="{{seleccionColor}}" position="stacked"><small>descripción</small></ion-label>
-          <ion-textarea disabled="loading" formControlName="descripcion" inputmode="text" placeholder="ej: manzanas rojas y verdes a la venta"></ion-textarea>         
+          <ion-textarea [disabled]="loading" formControlName="descripcion" inputmode="text" placeholder="ej: manzanas rojas y verdes a la venta"></ion-textarea>         
       </ion-item>      
 
       <ion-item>
           <ion-label color="{{seleccionColor}}" position="stacked"><small>contacto</small></ion-label>
-          <ion-textarea disabled="loading" formControlName="contacto" inputmode="text" placeholder="ej: 080042342, manzanas@blo.com"></ion-textarea>         
+          <ion-textarea [disabled]="loading" formControlName="contacto" inputmode="text" placeholder="ej: 080042342, manzanas@blo.com"></ion-textarea>         
       </ion-item>  
 
 
 
        <div class="fullheight xc">  
         <ion-button (click)="volver()" fill="outline" class="drop" size="small" color="warning" slot="start">  
-          <ion-icon slot="start" disabled="loading" name="arrow-back-circle-outline"></ion-icon>volver
+          <ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver
       </ion-button>
          <ion-button type="submit" [disabled]="ionicForm.invalid && loading" fill="outline" class="drop" size="small" color="{{seleccionColor}}" slot="start">  
           <ion-icon slot="start" name="checkmark-done-circle-outline"></ion-icon>guardar<ion-spinner *ngIf="!loading" name="crescent"></ion-spinner>

@@ -9,8 +9,8 @@ import {Location} from '@angular/common';
 })
 export class AuthService {
 
-  baseUrl: string = 'https://moviles03.herokuapp.com';
-  //baseUrl: string = 'http://localhost:3000';
+  //baseUrl: string = 'https://moviles03.herokuapp.com';
+  baseUrl: string = 'http://localhost:3000';
 
 
   httpOptions = {
