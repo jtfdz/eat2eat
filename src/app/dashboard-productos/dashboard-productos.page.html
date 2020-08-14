@@ -26,7 +26,7 @@
       <ion-card *ngIf="!loading">
         <ion-item>
             <ion-text color="{{info.coloreo}}"><h4><strong>{{info.nombre}}</strong></h4></ion-text>  
-            <ion-button icon-only routerLink="" slot="end" color="{{info.coloreo}}"><ion-icon name="locate"></ion-icon></ion-button>            
+            <ion-button icon-only routerLink="/maps/{{info.idt}}" slot="end" color="{{info.coloreo}}"><ion-icon name="locate"></ion-icon></ion-button>            
         </ion-item> 
         <ion-card-content>
         <ion-text>
@@ -46,7 +46,7 @@
       <ion-card *ngFor="let pro of arr">
         <ion-item>
             <ion-text color="{{pro.color_establecimiento}}"><p><strong>{{pro.nombre_producto}} </strong><small> <ion-icon name="time-outline"></ion-icon>{{pro.tiempo_espera_producto}}m</small></p></ion-text>  
-            <ion-button icon-only routerLink="/carrito/{{pro.id_producto}}"  slot="end" color="secondary"><ion-icon name="cart"></ion-icon></ion-button>
+            <ion-button icon-only routerLink="/carrito/{{pro.id_producto}}"  slot="end" color="secondary"><ion-icon name="cart"></ion-icon><ion-icon name="add"></ion-icon></ion-button>
         </ion-item> 
         <ion-card-content>
         <ion-text>
@@ -60,7 +60,9 @@
     </ion-list>
 
 
-
+   <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="!loading">
+    <ion-fab-button routerDirection="foward" href="/leer-carrito" color="secondary" size="small"><ion-icon size="small" name="cart"></ion-icon></ion-fab-button>
+  </ion-fab>
 
 
 

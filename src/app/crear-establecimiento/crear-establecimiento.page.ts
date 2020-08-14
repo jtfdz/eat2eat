@@ -36,6 +36,8 @@ export class CrearEstablecimientoPage{
       direccion: ['', Validators.required],
       descripcion: ['', Validators.required],
       contacto: ['', Validators.required],
+      latitud: ['', Validators.required],
+      longitud: ['', Validators.required],            
       });
   }
 

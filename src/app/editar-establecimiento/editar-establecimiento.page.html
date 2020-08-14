@@ -36,6 +36,22 @@
         <ion-input [disabled]="loading" formControlName="direccion" value="{{direccion}}" type="text" ></ion-input>        
       </ion-item>
 
+      <ion-grid><ion-row>
+      <ion-col size="6">
+        <ion-item>
+        <ion-label color="{{coloreo}}" position="floating"><small>latitud</small></ion-label>
+        <ion-input [disabled]="loading" formControlName="latitud" value="{{latitud}}" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="5">
+        <ion-item>
+        <ion-label color="{{coloreo}}" position="floating"><small>longitud</small></ion-label>
+        <ion-input [disabled]="loading" formControlName="longitud" value="{{longitud}}" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+      </ion-row></ion-grid>      
+
       <ion-item>
         <ion-label color="{{coloreo}}" position="floating"><small>contacto</small></ion-label>
         <ion-input [disabled]="loading"  formControlName="contacto" value="{{contacto}}" type="text"></ion-input>        

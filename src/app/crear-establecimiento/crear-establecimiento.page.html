@@ -46,6 +46,22 @@
         <ion-input [disabled]="loading" formControlName="direccion" type="text" placeholder="ej: centro comercial alfa, omega y ventas" ></ion-input>         
       </ion-item>
 
+      <ion-grid><ion-row>
+      <ion-col size="6">
+        <ion-item>
+        <ion-label color="{{seleccionColor}}" position="floating"><small>latitud</small></ion-label>
+        <ion-input formControlName="latitud" [disabled]="loading" type="text" placeholder="99.9999999"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="5">
+        <ion-item>
+        <ion-label color="{{seleccionColor}}" position="floating"><small>longitud</small></ion-label>
+        <ion-input formControlName="longitud" [disabled]="loading" type="text" placeholder="99.9999999"></ion-input>
+        </ion-item>
+      </ion-col>
+      </ion-row></ion-grid>
+
 
       <ion-item>
           <ion-label color="{{seleccionColor}}" position="stacked"><small>descripción</small></ion-label>
@@ -58,13 +74,12 @@
       </ion-item>  
 
 
-
        <div class="fullheight xc">  
         <ion-button (click)="volver()" fill="outline" class="drop" size="small" color="warning" slot="start">  
           <ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver
       </ion-button>
-         <ion-button type="submit" [disabled]="ionicForm.invalid && loading" fill="outline" class="drop" size="small" color="{{seleccionColor}}" slot="start">  
-          <ion-icon slot="start" name="checkmark-done-circle-outline"></ion-icon>guardar<ion-spinner *ngIf="!loading" name="crescent"></ion-spinner>
+         <ion-button type="submit" [disabled]="ionicForm.invalid && !loading" fill="outline" class="drop" size="small" color="{{seleccionColor}}" slot="start">  
+          <ion-icon slot="start" name="checkmark-done-circle-outline"></ion-icon>guardar<ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
       </ion-button>
        </div>
 

@@ -18,6 +18,8 @@ export class EditarEstablecimientoPage implements OnInit {
 	direccion: String;
 	descripcion: String;
 	contacto: String;
+	latitud: String;
+	longitud: String;	
 	loading: boolean = true;
 
   constructor(
@@ -41,6 +43,8 @@ export class EditarEstablecimientoPage implements OnInit {
       direccion: ['', Validators.required],
       descripcion: ['', Validators.required],
       contacto: ['', Validators.required],
+      longitud: ['', Validators.required],  
+      latitud: ['', Validators.required],          
       });
   	}
 
@@ -59,6 +63,8 @@ export class EditarEstablecimientoPage implements OnInit {
 						this.direccion = datos['direccion_establecimiento'];
 						this.descripcion = datos['descripcion_establecimiento'];
 						this.contacto = datos['contacto_establecimiento'];
+						this.longitud = datos['longitud_establecimiento'];
+						this.latitud = datos['latitud_establecimiento'];						
 						this.loading = false;
                        break; 
                      } 

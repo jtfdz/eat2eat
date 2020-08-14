@@ -16,6 +16,7 @@ export class DashboardProductosPage implements OnInit {
   arr : any = [];
   arrEst : any = [];
   info: any = {
+    idt: '',
     coloreo: '',
     contacto: '',
     descripcion: '',
@@ -49,6 +50,7 @@ export class DashboardProductosPage implements OnInit {
                       for (let entry of response['data']){
                         this.arrEst.push(entry);
                       }
+                      this.info.idt = this.arrEst[0].id_establecimiento;
                       this.info.coloreo = this.arrEst[0].color_establecimiento;
                       this.info.contacto = this.arrEst[0].contacto_establecimiento;
                       this.info.descripcion = this.arrEst[0].descripcion_establecimiento;

@@ -58,6 +58,14 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'maps/:id',
+    loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
+  },
+  {
+    path: 'leer-carrito',
+    loadChildren: () => import('./leer-carrito/leer-carrito.module').then( m => m.LeerCarritoPageModule)
+  },
   
 ];
 
