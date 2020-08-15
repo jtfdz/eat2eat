@@ -33,9 +33,10 @@
  </ion-list>
 
 
-      <ion-card *ngFor="let productos of arr">
+      <ion-card *ngFor="let productos of arr;let i=index">
         <ion-item>
             <ion-text><p><strong>{{productos.nombre_producto}} </strong><small> <ion-icon name="time-outline"></ion-icon>{{productos.tiempo_espera_producto}}m</small></p></ion-text>  
+            <ion-button (click)="borrar()" class="drop" size="small" color="danger" slot="end"> <ion-icon slot="start" name="trash"></ion-icon></ion-button>
         </ion-item> 
         <ion-card-content>
 
@@ -48,7 +49,7 @@
         </ion-col>
         <ion-col size="6">
         <ion-text>
-          <h4><strong><u><ion-text>total:</ion-text> </u></strong></h4><h4> $</h4>
+          <h4><strong><u><ion-text>total:</ion-text> </u></strong></h4><h4> ${{totales[i]}}</h4>
         </ion-text>
         </ion-col>
         </ion-row></ion-grid>
@@ -58,7 +59,7 @@
           <h4><strong><u><ion-text>descripción:</ion-text> </u></strong></h4><h4> {{productos.descripcion_producto}}</h4>
         </ion-text>
         <ion-text>
-          <h4><strong><u><ion-text>unidades:</ion-text> </u></strong></h4>
+          <h4><strong><u><ion-text>unidades:</ion-text> </u></strong></h4><h4> {{cantidades[i]}}</h4>
         </ion-text>
 
 

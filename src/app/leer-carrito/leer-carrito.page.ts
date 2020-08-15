@@ -12,6 +12,10 @@ export class LeerCarritoPage implements OnInit {
   baseUrl: string = '/carritos-usuario';    
   loading: boolean = true;
   arr : any = [];
+  productos : any = [];
+  productosInfo : any = [];
+  cantidades : any = [];
+  totales : any = [];
 
   constructor(
   	public authService : AuthService,) { }
@@ -32,9 +36,21 @@ export class LeerCarritoPage implements OnInit {
         .then((response) => {
           switch(response['status']) { 
                     case 200: { 
-                      for (let entry of response['data']){
-                        this.arr.push(entry);
+                      this.productos = response['data'][0].productos_carrito;
+                      for (let entry of this.productos){
+                        this.cantidades.push(JSON.parse(entry).cantidad)
                       }
+                      
+                      for (let datos of response['data']){
+                        this.arr.push(datos);
+                      }
+
+                      for(let i of this.cantidades){
+                        
+                        this.totales.push(this.cantidades[i] + parseFloat(this.arr[i].precio.replace('$','').replace(',','')));
+                      }
+
+
                       this.loading = false;
                        break; 
                      } 
