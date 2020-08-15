@@ -16,7 +16,13 @@
 <ion-content>
 
    <div class="fullheight xc" *ngIf="loading"> 
-      <ion-spinner name="crescent"></ion-spinner>
+     <div class="spinner">
+      <div class="custom-spinner-container">
+        <div class="custom-spinner-box">
+           <img src="./../assets/media/spinner-fruits.gif" />
+         </div>
+         </div>
+      </div>
     </div>
 
     <ion-item lines="none" *ngIf="!loading">

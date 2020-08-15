@@ -70,7 +70,7 @@ export class BorrarEstablecimientoPage  implements OnInit{
 		            console.log(response)
 		            switch(response['status']) { 
 		                      case 200: { 
-		                        this.authService.devolver();
+		                        this.router.navigate(['/tabnav']); 
 		                         break; 
 		                       } 
 		                       default: { 

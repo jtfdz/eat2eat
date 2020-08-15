@@ -62,7 +62,7 @@ export class RegistroPage {
       console.log(response);
       switch(response['status']) { 
                 case 200: { 
-                      this.router.navigate(['/tabnav']); 
+                      this.router.navigate(['/login']); 
                       this.ionicForm.reset();
                    break; 
                  } 
@@ -88,5 +88,6 @@ export class RegistroPage {
         });
   }
  
+
 
 }

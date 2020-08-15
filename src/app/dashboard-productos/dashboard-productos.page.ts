@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CrearCarritoPage } from '../crear-carrito/crear-carrito.page';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard-productos',
@@ -27,7 +30,8 @@ export class DashboardProductosPage implements OnInit {
   constructor(
     public authService : AuthService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,          
+    private activatedRoute: ActivatedRoute, 
+    public modalController: ModalController         
     ) { }
 
   logout(){
@@ -68,7 +72,6 @@ export class DashboardProductosPage implements OnInit {
             });
 
 
-
     this.authService.getRequest(this.baseUrl + this.id)
         .then((response) => {
           switch(response['status']) { 
@@ -88,6 +91,22 @@ export class DashboardProductosPage implements OnInit {
             console.log(error);
             });
 	  }
+
+
+
+  async add(pro) {
+    const modal = await this.modalController.create({
+      component: CrearCarritoPage,
+      componentProps: { producto: pro }
+    });
+    return await modal.present();
+  }
+
+
+dismiss() {
+this.modalController.dismiss();
+}
+
 
   ionViewDidLeave(){
     this.arr = [];

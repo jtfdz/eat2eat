@@ -16,7 +16,13 @@
 <ion-content>
 
    <div class="fullheight xc" *ngIf="loading"> 
-      <ion-spinner name="crescent"></ion-spinner>
+     <div class="spinner">
+      <div class="custom-spinner-container">
+        <div class="custom-spinner-box">
+           <img src="./../assets/media/spinner-fruits.gif" />
+         </div>
+         </div>
+      </div>
     </div>
 
     <ion-item lines="none" *ngIf="!loading">
@@ -46,7 +52,7 @@
       <ion-card *ngFor="let pro of arr">
         <ion-item>
             <ion-text color="{{pro.color_establecimiento}}"><p><strong>{{pro.nombre_producto}} </strong><small> <ion-icon name="time-outline"></ion-icon>{{pro.tiempo_espera_producto}}m</small></p></ion-text>  
-            <ion-button icon-only routerLink="/carrito/{{pro.id_producto}}"  slot="end" color="secondary"><ion-icon name="cart"></ion-icon><ion-icon name="add"></ion-icon></ion-button>
+            <ion-button icon-only (click)="add(pro)"  slot="end" color="secondary"><ion-icon name="cart"></ion-icon><ion-icon name="add"></ion-icon></ion-button>
         </ion-item> 
         <ion-card-content>
         <ion-text>
