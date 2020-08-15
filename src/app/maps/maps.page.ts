@@ -15,6 +15,7 @@ export class MapsPage implements OnInit  {
   id = null;
   map: any;
   baseUrl: string = '/establecimiento/'; 
+  loading: boolean = true;
   arrEst : any = [];
   info: any = {
     nombre: '',
@@ -119,7 +120,7 @@ export class MapsPage implements OnInit  {
 
     flightPath.setMap(this.map);
 
-
+    this.loading = false;
   }
 
 

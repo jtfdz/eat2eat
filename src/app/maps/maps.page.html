@@ -1,4 +1,16 @@
 <ion-content>
 	<ion-button color="secondary" (click)="volver()" expand="full">volver</ion-button>
-  	<div id="mapElement" class="map"></div>
+  	   <div class="fullheight xc" *ngIf="loading"> 
+     <div class="spinner">
+      <div class="custom-spinner-container">
+        <div class="custom-spinner-box">
+           <img src="./../assets/media/spinner-fruits.gif" />
+         </div>
+         </div>
+      </div>
+    </div>
+
+      <div id="mapElement" class="map" ></div>
+
+
 </ion-content>
