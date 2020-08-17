@@ -8,13 +8,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { CrearCarritoPageRoutingModule } from './crear-carrito/crear-carrito-routing.module';
+import { CreateCarritoPageRoutingModule } from './views-carritos/create-carrito/create-carrito-routing.module';
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, CrearCarritoPageRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, CreateCarritoPageRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,

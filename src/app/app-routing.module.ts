@@ -12,63 +12,68 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
-  },
-  // {
-  //   path: 'dashboard',
-  //   loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
-  // },
-  {
     path: 'tabnav',
     loadChildren: () => import('./tabnav/tabnav.module').then( m => m.TabnavPageModule)
-  },
-  {
-    path: 'crear-establecimiento',
-    loadChildren: () => import('./crear-establecimiento/crear-establecimiento.module').then( m => m.CrearEstablecimientoPageModule)
-  },
-  {
-    path: 'editar-establecimiento/:id',
-    loadChildren: () => import('./editar-establecimiento/editar-establecimiento.module').then( m => m.EditarEstablecimientoPageModule)
-  },
-  {
-    path: 'borrar-establecimiento/:id',
-    loadChildren: () => import('./borrar-establecimiento/borrar-establecimiento.module').then( m => m.BorrarEstablecimientoPageModule)
-  },
-  {
-    path: 'editar-producto/:id',
-    loadChildren: () => import('./editar-producto/editar-producto.module').then( m => m.EditarProductoPageModule)
-  },
-  {
-    path: 'borrar-producto/:id',
-    loadChildren: () => import('./borrar-producto/borrar-producto.module').then( m => m.BorrarProductoPageModule)
-  },
-  {
-    path: 'dashboard-productos/:id',
-    loadChildren: () => import('./dashboard-productos/dashboard-productos.module').then( m => m.DashboardProductosPageModule)
-  },   {
-    path: 'dashboard-productos-individual/:id',
-    loadChildren: () => import('./dashboard-productos-individual/dashboard-productos-individual.module').then( m => m.DashboardProductosIndividualPageModule)
-  },
-  {
-    path: 'crear-producto/:id',
-    loadChildren: () => import('./crear-producto/crear-producto.module').then( m => m.CrearProductoPageModule)
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'maps/:id',
     loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
   },
   {
-    path: 'leer-carrito',
-    loadChildren: () => import('./leer-carrito/leer-carrito.module').then( m => m.LeerCarritoPageModule)
+    path: 'registro-conductor',
+    loadChildren: () => import('./views/registro-conductor/registro-conductor.module').then( m => m.RegistroConductorPageModule)
   },
   {
-    path: 'crear-carrito',
-    loadChildren: () => import('./crear-carrito/crear-carrito.module').then( m => m.CrearCarritoPageModule)
+    path: 'login-usuario',
+    loadChildren: () => import('./views/login-usuario/login-usuario.module').then( m => m.LoginUsuarioPageModule)
+  },
+  {
+    path: 'registro-conductor-siguiente',
+    loadChildren: () => import('./views/registro-conductor-siguiente/registro-conductor-siguiente.module').then( m => m.RegistroConductorSiguientePageModule)
+  },
+  {
+    path: 'registro-usuario',
+    loadChildren: () => import('./views/registro-usuario/registro-usuario.module').then( m => m.RegistroUsuarioPageModule)
+  },
+  {
+    path: 'create-establecimiento',
+    loadChildren: () => import('./views-establecimientos/create-establecimiento/create-establecimiento.module').then( m => m.CreateEstablecimientoPageModule)
+  },
+  {
+    path: 'delete-establecimiento/:id',
+    loadChildren: () => import('./views-establecimientos/delete-establecimiento/delete-establecimiento.module').then( m => m.DeleteEstablecimientoPageModule)
+  },
+  {
+    path: 'update-establecimiento/:id',
+    loadChildren: () => import('./views-establecimientos/update-establecimiento/update-establecimiento.module').then( m => m.UpdateEstablecimientoPageModule)
+  },
+  {
+    path: 'create-producto/:id',
+    loadChildren: () => import('./views-productos/create-producto/create-producto.module').then( m => m.CreateProductoPageModule)
+  },
+  {
+    path: 'delete-producto/:id',
+    loadChildren: () => import('./views-productos/delete-producto/delete-producto.module').then( m => m.DeleteProductoPageModule)
+  },
+  {
+    path: 'update-producto/:id',
+    loadChildren: () => import('./views-productos/update-producto/update-producto.module').then( m => m.UpdateProductoPageModule)
+  },
+  {
+    path: 'dashboard-local-productos/:id',
+    loadChildren: () => import('./views-dashboards/dashboard-local-productos/dashboard-local-productos.module').then( m => m.DashboardLocalProductosPageModule)
+  },
+  {
+    path: 'dashboard-global-productos/:id',
+    loadChildren: () => import('./views-dashboards/dashboard-global-productos/dashboard-global-productos.module').then( m => m.DashboardGlobalProductosPageModule)
+  },
+  {
+    path: 'create-carrito',
+    loadChildren: () => import('./views-carritos/create-carrito/create-carrito.module').then( m => m.CreateCarritoPageModule)
+  },
+  {
+    path: 'read-delete-carrito',
+    loadChildren: () => import('./views-carritos/read-delete-carrito/read-delete-carrito.module').then( m => m.ReadDeleteCarritoPageModule)
   },
   
 ];

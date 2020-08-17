@@ -78,6 +78,8 @@ export class MapsPage implements OnInit  {
 
   loadMap(position){
 
+    console.log(google)
+
     var myLatLngLocal = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var myLatLngEst = new google.maps.LatLng(this.info.lat, this.info.lon);
 

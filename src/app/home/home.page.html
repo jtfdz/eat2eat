@@ -21,9 +21,12 @@
   <ion-card-content>
       <div class="xc"><ion-text color="dark"><p><small>¡contacta a tu restaurante!</small></p></ion-text></div>
        <ion-buttons>
-    <ion-button [routerLink]="['/registro']" [disabled]="loading" class="drop" fill="outline" size="small" color="primary"  slot="end"><small>registro</small></ion-button>
-        <ion-button [routerLink]="['/login']" [disabled]="loading" class="drop" fill="outline" size="small" color="warning"  slot="end"><small>iniciar sesión</small></ion-button>
+    <ion-button [routerLink]="['/registro-usuario']" [disabled]="loading" class="drop" fill="outline" size="small" color="primary"  slot="end"><small>registro</small></ion-button>
+        <ion-button [routerLink]="['/login-usuario']" [disabled]="loading" class="drop" fill="outline" size="small" color="warning"  slot="end"><small>iniciar sesión</small></ion-button>
       </ion-buttons>
+      <ion-buttons class="bigger xc">
+    <ion-button [routerLink]="['/registro-conductor']" [disabled]="loading" class="drop" fill="outline" size="small" color="success"  slot="end"><small>registro para conductores</small></ion-button>  
+    </ion-buttons>    
       </ion-card-content>
 </ion-card>
 

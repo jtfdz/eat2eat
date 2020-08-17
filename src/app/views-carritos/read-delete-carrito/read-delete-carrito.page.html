@@ -1,0 +1,78 @@
+<ion-header  class="ion-no-border">
+  <ion-toolbar>
+      <ion-title color="dark" size="large" class="drop">
+      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
+      </ion-title>
+
+    <ion-button (click)="logout()" class="drop" size="small" color="danger" slot="end">  
+      <ion-icon slot="start" name="log-out-outline"></ion-icon></ion-button>
+ 
+       <ion-button (click)="atras()" class="drop" fill="outline" slot="end" size="small" color="warning"><ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver</ion-button>
+       
+  </ion-toolbar>
+</ion-header>
+<ion-content class="fullheight">
+
+
+   <div class="fullheight xc" *ngIf="loading"> 
+     <div class="spinner">
+      <div class="custom-spinner-container">
+        <div class="custom-spinner-box">
+           <img src="./../assets/media/spinner-fruits.gif" />
+         </div>
+         </div>
+      </div>
+    </div>
+
+<ion-list *ngIf="!loading">
+	<ion-list-header color="light">
+	 <div class="fullheight xc">
+	 <img class="food-header" src="/assets/media/heart-cakes.png">
+    <ion-text>𝖈𝖆𝖗𝖗𝖎𝖙𝖔</ion-text>
+	</div>
+	</ion-list-header>
+
+      <div class="fullheight xc" *ngIf="arr.length == 0"> 
+          <ion-text color="medium">
+        <p><strong><small>vacío :(</small></strong></p>
+      </ion-text>
+    </div>
+
+      <ion-card *ngFor="let productos of arr">
+        <ion-item>
+            <ion-text><p><strong>{{productos.nombre_producto}} </strong><small> <ion-icon name="time-outline"></ion-icon>{{productos.tiempo_espera_producto}}m</small></p></ion-text>  
+            <ion-button (click)="borrar(productos.id_producto)" class="drop" size="small" color="danger" slot="end"> <ion-icon name="trash"></ion-icon></ion-button>
+        </ion-item> 
+        <ion-card-content>
+
+
+        <ion-grid><ion-row>
+          <ion-col size="6">
+        <ion-text>
+          <h4><strong><u><ion-text>precio:</ion-text> </u></strong></h4><h4> {{productos.precio_producto}}</h4>
+        </ion-text> 
+        </ion-col>
+        <ion-col size="6">
+        <ion-text>
+          <h4><strong><u><ion-text>total:</ion-text> </u></strong></h4><h4> ${{productos.total}}</h4>
+        </ion-text>
+        </ion-col>
+        </ion-row></ion-grid>
+
+
+        <ion-text>
+          <h4><strong><u><ion-text>descripción:</ion-text> </u></strong></h4><h4> {{productos.descripcion_producto}}</h4>
+        </ion-text>
+        <ion-text>
+          <h4><strong><u><ion-text>unidades:</ion-text> </u></strong></h4><h4> {{productos.cantidad}}</h4>
+        </ion-text>
+
+
+        </ion-card-content>
+      </ion-card>
+ </ion-list>
+
+
+
+
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header  class="ion-no-border">
+  <ion-toolbar>
+      <ion-title color="dark" size="large" class="drop">
+      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
+      </ion-title>
+
+    <ion-button (click)="logout()" class="drop" size="small" color="danger" slot="end">  
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>desconectar</ion-button>
+ 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+   <div class="fullheight xc" *ngIf="loading"> 
+     <div class="spinner">
+      <div class="custom-spinner-container">
+        <div class="custom-spinner-box">
+           <img src="./../assets/media/spinner-fruits.gif" />
+         </div>
+         </div>
+      </div>
+    </div>
+
+
+
+    <ion-list *ngIf="!loading">
+      <ion-item lines="none"></ion-item>
+        <div class="fullheight xc"><img class="rainbow" src="/assets/media/rainbow.gif"></div>
+      <div class="xc">𝖒𝖎𝖘 𝖊𝖘𝖙𝖆𝖇𝖑𝖊𝖈𝖎𝖒𝖎𝖊𝖓𝖙𝖔𝖘</div>
+      <div class="fullheight xc" *ngIf="arr.length == 0"> 
+          <ion-text color="medium">
+        <p><strong><small>aún no has creado<br> un establecimiento</small></strong></p>
+      </ion-text>
+    </div>
+      <ion-card *ngFor="let est of arr">
+        <ion-item>
+            <ion-text color="{{est.color_establecimiento}}"><h4><strong>{{est.nombre_establecimiento}}</strong></h4></ion-text> 
+        </ion-item> 
+        <ion-item >
+          <div class="bigger xc">
+            <ion-button routerLink="/dashboard-local-productos/{{est.id_establecimiento}}" icon-only slot="end" color="{{est.color_establecimiento}}"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>
+            <ion-button icon-only routerLink="/update-establecimiento/{{est.id_establecimiento}}"  slot="end" color="warning"><ion-icon name="brush-outline"></ion-icon></ion-button> 
+            <ion-button routerLink="/delete-establecimiento/{{est.id_establecimiento}}"  icon-only  slot="end" color="danger"><ion-icon name="trash"></ion-icon></ion-button>
+            </div>        
+        </ion-item>
+        <ion-card-content>
+        <ion-text>
+          <h4><strong><u>descripción: </u></strong></h4><h4> {{est.descripcion_establecimiento}}</h4>
+        </ion-text>
+        <ion-text>
+          <h4><strong><u>dirección: </u></strong></h4><h4> {{est.direccion_establecimiento}}</h4>
+        </ion-text>
+        <ion-text color="danger" *ngIf="!est.aceptado_establecimiento">
+          <p><strong><u><small>PENDIENTE POR APROBACIÓN</small></u></strong></p>
+        </ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+
+   <ion-fab vertical="bottom" size="small" horizontal="end" slot="fixed" *ngIf="!loading">
+    <ion-fab-button [routerLink]="['/create-establecimiento']" routerDirection="foward" color="success" size="small"><ion-icon size="small" name="add-outline"></ion-icon></ion-fab-button>
+  </ion-fab>
+
+
+
+</ion-content>

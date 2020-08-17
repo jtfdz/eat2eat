@@ -6,20 +6,20 @@ import { TabnavPage } from './tabnav.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'tabs-nav/dashboard'
+    redirectTo: 'tabs-nav/dashboard-global'
   },
   {
     path: 'tabs-nav',
     component: TabnavPage,
     children: [
       {
-        path: 'dashboard',
-        loadChildren: () => import('../dashboard/dashboard.module').then( m => m.DashboardPageModule)
+        path: 'dashboard-global',
+        loadChildren: () => import('../views-dashboards/dashboard-global/dashboard-global.module').then( m => m.DashboardGlobalPageModule)
       },
       {
-        path: 'dashboard-individual',
-        loadChildren: () => import('../dashboard-individual/dashboard-individual.module').then( m => m.DashboardIndividualPageModule)
-      },   
+        path: 'dashboard-local',
+        loadChildren: () => import('../views-dashboards/dashboard-local/dashboard-local.module').then( m => m.DashboardLocalPageModule)
+      }, 
     ],
   }
 ];
