@@ -1,29 +1,8 @@
-<ion-header  class="ion-no-border">
-  <ion-toolbar>
-      <ion-title color="dark" size="large" class="drop">
-      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
-      </ion-title>
-
-    <ion-button (click)="logout()" class="drop" size="small" color="danger" slot="end">  
-      <ion-icon slot="start" name="log-out-outline"></ion-icon></ion-button>
-
-
-      <ion-button (click)="atras()" class="drop" fill="outline" slot="end" size="small" color="warning"><ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver</ion-button>
- 
-  </ion-toolbar>
-</ion-header>
+<app-header-secundario></app-header-secundario>
 
 <ion-content>
 
-   <div class="fullheight xc" *ngIf="loading"> 
-     <div class="spinner">
-      <div class="custom-spinner-container">
-        <div class="custom-spinner-box">
-           <img src="./../assets/media/spinner-fruits.gif" />
-         </div>
-         </div>
-      </div>
-    </div>
+    <app-fruit-spinner *ngIf="loading"></app-fruit-spinner>
 
     <ion-item lines="none" *ngIf="!loading">
     <div class="fullheight xc"><img class="rainbow" src="/assets/media/rainbow.gif"></div>
@@ -66,7 +45,7 @@
     </ion-list>
 
 
-   <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="!loading">
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="!loading">
     <ion-fab-button routerDirection="foward" routerLink="/read-delete-carrito" color="secondary" size="small"><ion-icon size="small" name="cart"></ion-icon></ion-fab-button>
   </ion-fab>
 

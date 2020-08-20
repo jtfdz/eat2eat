@@ -6,13 +6,12 @@ import { IonicModule } from '@ionic/angular';
 import { TabnavPageRoutingModule } from './tabnav-routing.module';
 import { TabnavPage } from './tabnav.page';
 
-
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabnavPageRoutingModule
+    TabnavPageRoutingModule,
   ],
   declarations: [TabnavPage]
 })

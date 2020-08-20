@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
+import { NavParams } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro-conductor-siguiente',
@@ -14,13 +17,17 @@ export class RegistroConductorSiguientePage implements OnInit {
   ionicForm: FormGroup;
   baseUrl: string = '/registro-conductor';
   loading: boolean = false;
-  boton: HTMLInputElement; 
-  data: any;
+  userdata: any;
+
 
   constructor(private router: Router, 
-    public formBuilder: FormBuilder, 
+    public formBuilder: FormBuilder,
+    public modalController: ModalController,
+    public alertController: AlertController,
+    navParams: NavParams,
     public authService : AuthService) 
   { this.ionicForm = this.createMyForm(); 
+    this.userdata = navParams.get('user');
   }
 
     createMyForm(){
@@ -28,29 +35,36 @@ export class RegistroConductorSiguientePage implements OnInit {
       marca: ['', Validators.required],
       modelo: ['', Validators.required],
       placa: ['', [Validators.required]],
-      color: ['', Validators.required],
+      coloreo: ['', Validators.required],
       distintivos: ['', Validators.required],    
       });
   }
 
 
-  //unificar con home en un servicio
-  load(event: Event) {
-    this.loading = true;
-    this.boton = (event.target as HTMLInputElement);    
-    this.boton.disabled = true;
+
+   async dismiss() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: '¿descartar avances?',
+      //message: '',
+      buttons: [
+        {
+          text: 'no',
+          handler: () => {
+            alert.dismiss();
+          }
+        }, {
+          text: 'sí',
+          handler: () => {
+            this.modalController.dismiss({
+              'dismissed': true
+            });
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
-
-  showLoading(boo){
-    this.boton.disabled = boo;
-    this.loading = boo;
-  }  
-
-  ionViewDidLeave(){
-    if(this.boton)
-    this.showLoading(false);
-  }  
-
 
 
   ngOnInit() {
@@ -59,37 +73,41 @@ export class RegistroConductorSiguientePage implements OnInit {
 
   iniciar(){
 
+    this.loading = true;
+    var body = {};
+    body = Object.assign({}, this.userdata);
+    body = Object.assign(body, this.ionicForm.value);
 
-
-    // this.authService.postRequest(this.baseUrl, this.ionicForm.value)
-    // .then((response) => {
-    //   console.log(response);
-    //   switch(response['status']) { 
-    //             case 200: { 
-    //                   this.router.navigate(['/login']); 
-    //                   this.ionicForm.reset();
-    //                break; 
-    //              } 
-    //             case 500: { 
-    //                       alert('~por favor chequee su conexión a internet~')
-    //                       this.showLoading(false);
-    //                    break; 
-    //                  }   
-    //             case 304: { 
-    //                       alert('~ya has iniciado sesión~')
-    //                       this.showLoading(false);
-    //                    break; 
-    //                  }                   
-    //              default: { 
-    //                console.log('pelaste man');
-    //                this.showLoading(false);
-    //                break; 
-    //             } 
-    //           }
-    // }).catch(error => {
-    //     console.log(error);
-    //     this.showLoading(false);
-    //     });
+    this.authService.postRequest(this.baseUrl, body)
+    .then((response) => {
+      console.log(response);
+      switch(response['status']) { 
+                case 200: { 
+                      this.router.navigate(['/login-usuario']); 
+                      this.ionicForm.reset();
+                      this.loading = false;
+                   break; 
+                 } 
+                case 500: { 
+                          alert('~por favor chequee su conexión a internet~')
+                          this.loading = false;
+                       break; 
+                     }   
+                case 304: { 
+                          alert('~ya has iniciado sesión~')
+                          this.loading = false;
+                       break; 
+                     }                   
+                 default: { 
+                   console.log('ERROR: r-c-s: post');
+                   this.loading = false;
+                   break; 
+                } 
+              }
+    }).catch(error => {
+        console.log(error);
+        this.loading = false;
+        });
   }
 
 

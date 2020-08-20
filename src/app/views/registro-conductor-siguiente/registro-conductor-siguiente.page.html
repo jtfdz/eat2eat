@@ -3,7 +3,7 @@
     <ion-title color="dark" size="large" class="drop">
       𝖊𝖆𝖙𝟐𝖊𝖆𝖙
     </ion-title>
-      <ion-button [routerLink]="['/home']" [disabled]="loading" class="drop" fill="outline" slot="end" size="small" color="tertiary"><ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver</ion-button>
+      <ion-button (click)="dismiss()" [disabled]="loading" class="drop" fill="outline" slot="end" size="small" color="tertiary"><ion-icon slot="start" name="arrow-back-circle-outline"></ion-icon>volver</ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -32,14 +32,14 @@
       <ion-col size="5">
       <ion-item>
         <ion-label color="dark" position="stacked">marca:</ion-label>
-        <ion-input formControlName="marca" type="text" color="tertiary" placeholder="ej: bmw"></ion-input>
+        <ion-input [disabled]="loading" formControlName="marca" type="text" color="tertiary" placeholder="ej: bmw"></ion-input>
       </ion-item>  
       </ion-col>
 
       <ion-col size="6">
       <ion-item>
         <ion-label color="dark" position="stacked">modelo:</ion-label>
-        <ion-input formControlName="modelo" type="text" color="tertiary" placeholder="ej: e38"></ion-input>
+        <ion-input [disabled]="loading" formControlName="modelo" type="text" color="tertiary" placeholder="ej: e38"></ion-input>
       </ion-item>
       </ion-col>
 
@@ -51,14 +51,14 @@
       <ion-col size="5">
       <ion-item>
         <ion-label color="dark" position="stacked">placa:</ion-label>
-        <ion-input formControlName="placa" type="text" color="tertiary" placeholder="ej: AB123CD"></ion-input>
+        <ion-input [disabled]="loading" formControlName="placa" type="text" color="tertiary" placeholder="ej: AB123CD"></ion-input>
       </ion-item>  
       </ion-col>
 
       <ion-col size="6">
       <ion-item>
         <ion-label color="dark" position="stacked">color:</ion-label>
-        <ion-input formControlName="color" type="text" color="tertiary" placeholder="ej: negro"></ion-input>
+        <ion-input [disabled]="loading" formControlName="coloreo" type="text" color="tertiary" placeholder="ej: negro"></ion-input>
       </ion-item>
       </ion-col>
 
@@ -69,7 +69,7 @@
 
       <ion-item>
         <ion-label color="dark" position="stacked">distintivos:</ion-label>
-        <ion-textarea formControlName="distintivos"  type="text" color="tertiary" placeholder="rines color azul, spoiler, vidrios no tintados"></ion-textarea>
+        <ion-textarea [disabled]="loading" formControlName="distintivos"  type="text" color="tertiary" placeholder="rines color azul, spoiler, vidrios no tintados"></ion-textarea>
       </ion-item>   
 
       </ion-col>   
@@ -79,8 +79,7 @@
 
 
        <div class="fullheight xc">  
-         <ion-button [routerLink]="['/registro-conductor']" color="tertiary" fill="solid" size="small">siguiente</ion-button>
-        <ion-button  type="submit" [disabled]="ionicForm.invalid" color="tertiary" fill="solid" size="small">siguiente</ion-button>
+        <ion-button  type="submit" [disabled]="ionicForm.invalid && loading" color="tertiary" fill="solid" size="small">confirmar<ion-spinner *ngIf="loading" name="crescent"></ion-spinner></ion-button>
        </div>
     </form>
 

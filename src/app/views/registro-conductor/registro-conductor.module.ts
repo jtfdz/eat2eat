@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RegistroConductorPageRoutingModule } from './registro-conductor-routing.module';
 import { RegistroConductorPage } from './registro-conductor.page';
 
+
 @NgModule({
   imports: [
     CommonModule,

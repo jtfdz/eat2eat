@@ -27,6 +27,7 @@ export class RegistroUsuarioPage {
       nombre: ['', Validators.required],
       email: ['', Validators.required],
       username: ['', [Validators.required]],
+      tipo: [2, [Validators.required]],
       passwords: this.formBuilder.group({
         password: ['', [Validators.required]], 
         passwordconfirmation: ['', [Validators.required]]

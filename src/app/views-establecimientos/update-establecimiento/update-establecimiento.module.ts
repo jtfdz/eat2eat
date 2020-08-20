@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { UpdateEstablecimientoPageRoutingModule } from './update-establecimiento-routing.module';
 import { UpdateEstablecimientoPage } from './update-establecimiento.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
@@ -11,8 +12,10 @@ import { UpdateEstablecimientoPage } from './update-establecimiento.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
+    ComponentsModule,
     UpdateEstablecimientoPageRoutingModule
   ],
+  entryComponents: [],
   declarations: [UpdateEstablecimientoPage]
 })
 export class UpdateEstablecimientoPageModule {}

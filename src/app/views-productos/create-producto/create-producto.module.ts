@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CreateProductoPageRoutingModule } from './create-producto-routing.module';
 import { CreateProductoPage } from './create-producto.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import { CreateProductoPage } from './create-producto.page';
     ReactiveFormsModule, 
     FormsModule,
     IonicModule,
+    ComponentsModule,
     CreateProductoPageRoutingModule
   ],
   declarations: [CreateProductoPage]

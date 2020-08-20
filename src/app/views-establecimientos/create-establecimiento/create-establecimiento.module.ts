@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CreateEstablecimientoPageRoutingModule } from './create-establecimiento-routing.module';
 import { CreateEstablecimientoPage } from './create-establecimiento.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
@@ -11,8 +12,10 @@ import { CreateEstablecimientoPage } from './create-establecimiento.page';
     ReactiveFormsModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     CreateEstablecimientoPageRoutingModule
   ],
+  entryComponents: [],
   declarations: [CreateEstablecimientoPage]
 })
 export class CreateEstablecimientoPageModule {}

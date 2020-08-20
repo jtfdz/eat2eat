@@ -1,0 +1,46 @@
+<ion-header  class="ion-no-border">
+  <ion-toolbar>
+      <ion-title color="dark" size="large" class="drop">
+      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
+      </ion-title>
+
+    <ion-button (click)="logout()" class="drop" size="small" color="danger" slot="end">  
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>desconectar</ion-button>
+ 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+   <div class="fullheight xc" *ngIf="loading"> 
+     <div class="spinner">
+      <div class="custom-spinner-container">
+        <div class="custom-spinner-box">
+           <img src="./../assets/media/spinner-fruits.gif" />
+         </div>
+         </div>
+      </div>
+    </div>
+
+    <ion-list *ngIf="!loading">
+      <ion-item lines="none"></ion-item>
+        <div class="fullheight xc"><img class="car" src="/assets/media/coffee-shop.png"></div>
+      <div class="xc">𝖊𝖘𝖙𝖆𝖇𝖑𝖊𝖈𝖎𝖒𝖎𝖊𝖓𝖙𝖔𝖘 𝖕𝖔𝖗 𝖆𝖕𝖗𝖔𝖇𝖆𝖗</div>
+      <ion-card *ngFor="let est of arr">
+        <ion-item>
+            <ion-button routerLink="/dashboard-global-productos/{{est.id_establecimiento}}" icon-only slot="end" color="{{est.color_establecimiento}}"><ion-icon name="arrow-redo-outline"></ion-icon></ion-button>
+            <ion-text color="{{est.color_establecimiento}}"><h4><strong>{{est.nombre_establecimiento}}</strong></h4></ion-text> 
+        </ion-item> 
+        <ion-card-content>
+        <ion-text>
+          <h4><strong><u><ion-text color="{{est.color_establecimiento}}">descripción:</ion-text> </u></strong></h4><h4> {{est.descripcion_establecimiento}}</h4>
+        </ion-text>
+        <ion-text>
+          <h4><strong><u><ion-text color="{{est.color_establecimiento}}">dirección:</ion-text> </u></strong></h4><h4> {{est.direccion_establecimiento}}</h4>
+        </ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+
+</ion-content>

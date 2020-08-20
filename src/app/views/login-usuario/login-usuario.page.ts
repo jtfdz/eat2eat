@@ -14,6 +14,7 @@ export class LoginUsuarioPage implements OnInit {
 
   ionicForm: FormGroup;
   baseUrl: string = '/login';
+  baseUrlUsuario: string = '/tipo-usuario';
   error: boolean = false;
   errorText: String = '~los datos ingresados no están registrados~';
   loading: boolean = false;
@@ -64,10 +65,18 @@ export class LoginUsuarioPage implements OnInit {
     
     this.authService.postRequest(this.baseUrl, this.ionicForm.value)
         .then((response) => {
-          console.log(response);
+     
           switch(response['status']) { 
                     case 200: { 
-                          this.router.navigate(['/tabnav']); 
+      
+
+                        switch(response['tipo'].tipo_usuario){
+                          case 1: {this.router.navigate(['/tabnav-administradora']);  break;}
+                          case 2: {this.router.navigate(['/tabnav']); break;}
+                          case 3: {this.router.navigate(['/tabnav-conductor']);  break}                  
+                        }
+                          
+
                           this.ionicForm.reset();
                        break; 
                      } 

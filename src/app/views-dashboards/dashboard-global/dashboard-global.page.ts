@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {AuthService} from '../../auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-global',
@@ -9,15 +8,13 @@ import { Router } from '@angular/router';
 })
 export class DashboardGlobalPage{
 
-
   baseUrl: string = '/establecimientos';	
   arr : any = [];
   loading: boolean = true;
 
 
   constructor(
-    public authService : AuthService,
-    private router: Router)
+    public authService : AuthService)
      {  }
 
 
@@ -26,7 +23,6 @@ export class DashboardGlobalPage{
   }
 
   ionViewWillEnter(){
-    this.arr = [];
   	this.authService.getRequest(this.baseUrl)
         .then((response) => {
           console.log(response)
@@ -53,7 +49,8 @@ export class DashboardGlobalPage{
         
   ionViewDidLeave(){
     this.arr = [];
-    this.loading = true;
+    this.loading = true;   
   }
+
 
 }

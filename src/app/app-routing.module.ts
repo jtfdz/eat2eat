@@ -75,6 +75,10 @@ const routes: Routes = [
     path: 'read-delete-carrito',
     loadChildren: () => import('./views-carritos/read-delete-carrito/read-delete-carrito.module').then( m => m.ReadDeleteCarritoPageModule)
   },
+  {
+    path: 'tabnav-administradora',
+    loadChildren: () => import('./tabnav-administradora/tabnav-administradora.module').then( m => m.TabnavAdministradoraPageModule)
+  },
   
 ];
 

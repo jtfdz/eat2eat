@@ -3,6 +3,8 @@ import {AuthService} from '../../auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-create-establecimiento',
   templateUrl: './create-establecimiento.page.html',
@@ -22,9 +24,7 @@ export class CreateEstablecimientoPage {
     private router: Router    
     ) { this.ionicForm = this.createMyForm(); }
 
-  logout(){
-    this.authService.presentAlertConfirm();
-  }
+
 
 
 //AGREGAR MÁS VALIDACIONES

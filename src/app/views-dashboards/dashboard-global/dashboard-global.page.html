@@ -1,26 +1,7 @@
-<ion-header  class="ion-no-border">
-  <ion-toolbar>
-      <ion-title color="dark" size="large" class="drop">
-      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
-      </ion-title>
-
-    <ion-button (click)="logout()" class="drop" size="small" color="danger" slot="end">  
-      <ion-icon slot="start" name="log-out-outline"></ion-icon>desconectar</ion-button>
- 
-  </ion-toolbar>
-</ion-header>
-
+<app-header-principal></app-header-principal>
 <ion-content>
 
-   <div class="fullheight xc" *ngIf="loading"> 
-     <div class="spinner">
-      <div class="custom-spinner-container">
-        <div class="custom-spinner-box">
-           <img src="./../assets/media/spinner-fruits.gif" />
-         </div>
-         </div>
-      </div>
-    </div>
+  <app-fruit-spinner *ngIf="loading"></app-fruit-spinner>
 
 
     <ion-list *ngIf="!loading">
@@ -44,12 +25,9 @@
     </ion-list>
 
 
-   <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="!loading">
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="!loading">
     <ion-fab-button routerDirection="foward" routerLink="/read-delete-carrito" color="secondary" size="small"><ion-icon size="small" name="cart"></ion-icon></ion-fab-button>
   </ion-fab>
-
-
-
 
 
 

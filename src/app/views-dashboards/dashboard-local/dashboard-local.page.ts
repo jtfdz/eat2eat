@@ -54,7 +54,6 @@ export class DashboardLocalPage{
 
   ionViewDidLeave(){
   	this.arr = [];
-
     this.loading = true;   
   }
 
