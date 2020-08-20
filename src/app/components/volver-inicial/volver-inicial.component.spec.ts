@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { BotonCarritoComponent } from './boton-carrito.component';
+import { VolverInicialComponent } from './volver-inicial.component';
 
-describe('BotonCarritoComponent', () => {
-  let component: BotonCarritoComponent;
-  let fixture: ComponentFixture<BotonCarritoComponent>;
+describe('VolverInicialComponent', () => {
+  let component: VolverInicialComponent;
+  let fixture: ComponentFixture<VolverInicialComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BotonCarritoComponent ],
+      declarations: [ VolverInicialComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BotonCarritoComponent);
+    fixture = TestBed.createComponent(VolverInicialComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

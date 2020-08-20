@@ -40,24 +40,9 @@ export class RegistroUsuarioPage {
   }
 
 
-  //unificar con home en un servicio
-  load(event: Event) {
-    this.loading = true;
-    this.boton = (event.target as HTMLInputElement);    
-    this.boton.disabled = true;
-  }
-
-  showLoading(boo){
-    this.boton.disabled = boo;
-    this.loading = boo;
-  }  
-
-  ionViewDidLeave(){
-    if(this.boton)
-    this.showLoading(false);
-  }  
 
   iniciar(){
+    this.loading = true;
     this.authService.postRequest(this.baseUrl, this.ionicForm.value)
     .then((response) => {
       console.log(response);
@@ -69,23 +54,23 @@ export class RegistroUsuarioPage {
                  } 
                 case 500: { 
                           alert('~por favor chequee su conexión a internet~')
-                          this.showLoading(false);
+                          this.loading = false;
                        break; 
                      }   
                 case 304: { 
                           alert('~ya has iniciado sesión~')
-                          this.showLoading(false);
+                          this.loading = false;
                        break; 
                      }                   
                  default: { 
                    console.log('pelaste man');
-                   this.showLoading(false);
+                   this.loading = false;
                    break; 
                 } 
               }
     }).catch(error => {
         console.log(error);
-        this.showLoading(false);
+        this.loading = false;
         });
   }
  
