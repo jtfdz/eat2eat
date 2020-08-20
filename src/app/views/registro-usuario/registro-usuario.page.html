@@ -5,12 +5,13 @@
 
     <ion-item-group>
 
-      <div class="fullheight xc"> 
-        <img src="/assets/media/pancakes.png">
-      </div>
+    <app-imagen-centrada nombreClase="" nombreImagen="/assets/media/pancakes.png"></app-imagen-centrada>
 
+    <div class="fullheight xc"> 
+      <img src="/assets/media/pancakes.png">
+    </div>
 
-      <div class="fullheight xc" id="titulo-app">    
+    <div class="fullheight xc" id="titulo-app">    
         <ion-label color="dark">𝖗𝖊𝖌𝖎𝖘𝖙𝖗𝖔</ion-label>     
       </div>
 
@@ -71,7 +72,7 @@
 
 
        <div class="fullheight xc">  
-        <ion-button type="submit" [disabled]="ionicForm.invalid && loading" color="warning" fill="solid" size="small">confirmar<ion-spinner *ngIf="loading" name="crescent"></ion-spinner></ion-button>
+        <ion-button type="submit" [disabled]="ionicForm.invalid && !loading" color="warning" fill="solid" size="small">confirmar<ion-spinner *ngIf="loading" name="crescent"></ion-spinner></ion-button>
        </div>
     </form>
 

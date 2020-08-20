@@ -1,23 +1,25 @@
-<ion-header>
+<ion-header  class="ion-no-border">
   <ion-toolbar>
-     <ion-button [disabled]="loading" (click)="dismiss()" class="drop" color="warning" slot="start">  
-      <ion-icon name="arrow-undo-outline"></ion-icon></ion-button>
-    <ion-text>𝖆𝖌𝖗𝖊𝖌𝖆𝖗 𝖆𝖑 𝖈𝖆𝖗𝖗𝖎𝖙𝖔</ion-text>
+      <ion-title color="dark" size="large" class="drop">
+      𝖊𝖆𝖙𝟐𝖊𝖆𝖙
+      </ion-title>
 
+     <ion-button [disabled]="loading" (click)="dismiss()" class="drop" color="warning" slot="end"> <ion-icon name="arrow-undo-outline"></ion-icon></ion-button>
+ 
   </ion-toolbar>
 </ion-header>
-
-<ion-content class="fullheight xc">
+<ion-content class="fullheight">
 
 <ion-list>
-	<ion-list-header color="tertiary">
+	<ion-list-header color="light">
 	 <div class="fullheight xc">
 	 <img class="food-header" src="/assets/media/fast-food.png">
+   <ion-text>𝖆𝖌𝖗𝖊𝖌𝖆𝖗 𝖆𝖑 𝖈𝖆𝖗𝖗𝖎𝖙𝖔</ion-text>
 	</div>
 	</ion-list-header>
 
-	 <div class="fullheight xc">
-	 <ion-item color="warning">
+
+
 
       <ion-card>
         <ion-item>
@@ -74,8 +76,7 @@
         </ion-card-content>
       </ion-card>
 
-	</ion-item>
-	 </div>
+
 
 
 

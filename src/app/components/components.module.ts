@@ -12,7 +12,7 @@ const PAGES_COMPONENTS = [
   HeaderPrincipalComponent,
   HeaderSecundarioComponent,
   FruitSpinnerComponent,
-  VolverInicialComponent
+  VolverInicialComponent,
 ];
 
 @NgModule({
